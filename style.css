@@ -1,6 +1,46 @@
 body {
-  /* Set line height to 1.5 times the font size
-     and use the OS’s UI font as the website font
-   */
   font: 100%/1.5 system-ui;
+  max-width: 70ch;
+  margin-inline: auto;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+label {
+  display: block;
+  margin: 1em 0;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 8em;
+}
+
+section {
+  margin: 2rem 0;
+}
+
+article {
+  margin: 1rem 0;
 }
