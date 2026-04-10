@@ -105,3 +105,25 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+section > header {
+  border-bottom: 2px solid oklch(80% 3% 200);
+  margin-bottom: 1rem;
+}
+
+section h2 {
+  margin-bottom: 0.5rem;
+}
+
+article h3 {
+  margin-bottom: 0.2rem;
+}
+
+time {
+  color: dimgray;
+  font-style: italic;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
