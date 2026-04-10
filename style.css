@@ -34,22 +34,28 @@ nav a:hover {
   background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
-
 img {
   max-width: 350px;
   width: 100%;
   height: auto;
 }
 
-label {
-  display: block;
-  margin: 1em 0;
-}
-
 input,
 textarea,
 button {
   font: inherit;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+}
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
 }
 
 input,
@@ -60,6 +66,10 @@ textarea {
 
 textarea {
   min-height: 8em;
+}
+
+button {
+  grid-column: 1 / -1;
 }
 
 section {
