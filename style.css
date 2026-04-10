@@ -34,6 +34,7 @@ nav a:hover {
   background-color: oklch(from var(--color-accent) 95% 5% h);
 }
 
+
 img {
   max-width: 350px;
   width: 100%;
