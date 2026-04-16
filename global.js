@@ -5,7 +5,7 @@ function $$(selector, context = document) {
 }
 
 document.body.insertAdjacentHTML(
-  'afterbegin',
+  "afterbegin",
   `
     <label class="color-scheme">
       Theme:
@@ -18,9 +18,9 @@ document.body.insertAdjacentHTML(
   `
 );
 
-let select = document.querySelector('.color-scheme select');
+let select = document.querySelector(".color-scheme select");
 
-select.addEventListener('change', function (event) {
+select.addEventListener("change", function (event) {
   document.documentElement.style.colorScheme = event.target.value;
 });
 
@@ -52,9 +52,9 @@ for (let p of pages) {
   a.textContent = p.title;
 
   a.classList.toggle(
-  "current",
-  a.host === location.host && a.pathname === location.pathname
-);
+    "current",
+    a.host === location.host && a.pathname === location.pathname
+  );
 
   if (a.host !== location.host) {
     a.target = "_blank";
