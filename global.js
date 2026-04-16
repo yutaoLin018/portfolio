@@ -20,8 +20,18 @@ document.body.insertAdjacentHTML(
 
 let select = document.querySelector(".color-scheme select");
 
-select.addEventListener("change", function (event) {
-  document.documentElement.style.colorScheme = event.target.value;
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty("color-scheme", colorScheme);
+  select.value = colorScheme;
+}
+
+if ("colorScheme" in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
+
+select.addEventListener("input", function (event) {
+  setColorScheme(event.target.value);
+  localStorage.colorScheme = event.target.value;
 });
 
 const BASE_PATH =
