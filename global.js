@@ -21,17 +21,18 @@ document.body.insertAdjacentHTML(
 let select = document.querySelector(".color-scheme select");
 
 function setColorScheme(colorScheme) {
-  document.documentElement.style.setProperty("color-scheme", colorScheme);
+  document.documentElement.style.colorScheme = colorScheme;
   select.value = colorScheme;
 }
 
-if ("colorScheme" in localStorage) {
+if (localStorage.colorScheme) {
   setColorScheme(localStorage.colorScheme);
 }
 
-select.addEventListener("input", function (event) {
-  setColorScheme(event.target.value);
-  localStorage.colorScheme = event.target.value;
+select.addEventListener("change", function (event) {
+  let colorScheme = event.target.value;
+  setColorScheme(colorScheme);
+  localStorage.colorScheme = colorScheme;
 });
 
 const BASE_PATH =
