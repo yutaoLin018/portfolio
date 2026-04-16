@@ -20,20 +20,16 @@ nav a {
   padding: 0.5em;
 }
 
+nav a:hover,
 nav a.current {
   border-bottom: 0.4em solid var(--color-accent);
-  padding-bottom: 0.1em;
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 html {
   color-scheme: dark;
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
-}
-
-nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 img {
