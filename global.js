@@ -32,9 +32,9 @@ for (let p of pages) {
   a.textContent = p.title;
 
   a.classList.toggle(
-    "current",
-    a.host === location.host && a.pathname === location.pathname
-  );
+  "current",
+  a.host === location.host && a.pathname === location.pathname
+);
 
   if (a.host !== location.host) {
     a.target = "_blank";
