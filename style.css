@@ -28,9 +28,16 @@ nav a.current {
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light dark;
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
 }
 
 img {
