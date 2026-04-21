@@ -1,22 +1,74 @@
 [
-    {
-        "title": "Project One Title",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    },
-    {
-        "title": "Project Two Title",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    },
-    {
-        "title": "Project Three Title",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    },
-    {
-        "title": "Project Four Title",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    }
+  {
+    "title": "Project 1: Expository Visualization",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "An expository visualization showing that ultra-processed foods cost less per 100 calories than minimally processed foods across Walmart, Target, and Whole Foods.",
+    "year": 2026
+  },
+  {
+    "title": "Project 2: Persuasive/Deceptive Visualization",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A persuasive visualization project exploring how chart design can shape interpretation and influence audience conclusions.",
+    "year": 2026
+  },
+  {
+    "title": "Project 3: Interactive Visualization",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "An interactive visualization project designed to let users explore data through interaction and dynamic views.",
+    "year": 2026
+  },
+  {
+    "title": "Final Project",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A final course project bringing together visualization design, analysis, and communication.",
+    "year": 2026
+  },
+  {
+    "title": "DSC 106 Project 2",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A DSC 106 project on persuasive data visualization and visual communication.",
+    "year": 2026
+  },
+  {
+    "title": "COGS 108 Group Project",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A collaborative COGS 108 data science project analyzing outage patterns in the United States.",
+    "year": 2025
+  },
+  {
+    "title": "COGS 9 Final Project",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A final project for COGS 9 exploring data analysis and programming concepts.",
+    "year": 2025
+  },
+  {
+    "title": "CSE 158 Final Project",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A CSE 158 final project focused on recommendation systems and machine learning.",
+    "year": 2025
+  },
+  {
+    "title": "Portfolio Website",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A personal portfolio website to showcase my coursework, projects, and contact information.",
+    "year": 2026
+  },
+  {
+    "title": "CV Page",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A curriculum vitae page presenting my education, skills, and experience.",
+    "year": 2026
+  },
+  {
+    "title": "Contact Form",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A contact page with a form for sending messages through the website.",
+    "year": 2026
+  },
+  {
+    "title": "GitHub Profile Stats",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "A homepage feature that fetches and displays live GitHub profile statistics.",
+    "year": 2026
+  }
 ]
