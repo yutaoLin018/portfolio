@@ -13,15 +13,15 @@ const profileStats = document.querySelector('#profile-stats');
 
 if (githubData && profileStats) {
   profileStats.innerHTML = `
-    <dl>
-      <dt>Public Repos</dt>
-      <dd>${githubData.public_repos}</dd>
-
+    <dl class="github-stats">
       <dt>Followers</dt>
       <dd>${githubData.followers}</dd>
 
       <dt>Following</dt>
       <dd>${githubData.following}</dd>
+
+      <dt>Public Repos</dt>
+      <dd>${githubData.public_repos}</dd>
 
       <dt>Public Gists</dt>
       <dd>${githubData.public_gists}</dd>
