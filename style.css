@@ -228,6 +228,10 @@ ul {
   opacity: 0.5;
 }
 
+.legend-item {
+  cursor: pointer;
+}
+
 .selected {
   --color: oklch(60% 45% 0) !important;
 }
