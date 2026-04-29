@@ -6,6 +6,24 @@ const projectsContainer = document.querySelector('.projects');
 const searchInput = document.querySelector('.searchBar');
 
 let query = '';
+let selectedIndex = -1;
+let data = [];
+
+function getFilteredProjects() {
+  let filteredProjects = projects.filter((project) => {
+    let values = Object.values(project).join('\n').toLowerCase();
+    return values.includes(query.toLowerCase());
+  });
+
+  if (selectedIndex !== -1) {
+    let selectedYear = data[selectedIndex].label;
+    filteredProjects = filteredProjects.filter((project) => {
+      return project.year === selectedYear;
+    });
+  }
+
+  return filteredProjects;
+}
 
 function renderPieChart(projectsGiven) {
   let rolledData = d3.rollups(
@@ -14,7 +32,7 @@ function renderPieChart(projectsGiven) {
     (d) => d.year
   );
 
-  let data = rolledData.map(([year, count]) => {
+  data = rolledData.map(([year, count]) => {
     return { value: count, label: year };
   });
 
@@ -36,38 +54,39 @@ function renderPieChart(projectsGiven) {
   let legend = d3.select('.legend');
   legend.selectAll('li').remove();
 
-  arcs.forEach((arc, idx) => {
+  arcs.forEach((arc, i) => {
     svg
       .append('path')
       .attr('d', arc)
-      .attr('fill', colors(idx));
+      .attr('fill', colors(i))
+      .attr('class', i === selectedIndex ? 'selected' : '')
+      .on('click', () => {
+        selectedIndex = selectedIndex === i ? -1 : i;
+
+        let filteredProjects = getFilteredProjects();
+
+        renderProjects(filteredProjects, projectsContainer, 'h2');
+        renderPieChart(filteredProjects);
+      });
   });
 
-  data.forEach((d, idx) => {
+  data.forEach((d, i) => {
     legend
       .append('li')
-      .attr('style', `--color: ${colors(idx)}`)
-      .attr('class', 'legend-item')
+      .attr('style', `--color: ${colors(i)}`)
+      .attr('class', i === selectedIndex ? 'legend-item selected' : 'legend-item')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
-}
-
-function setQuery(newQuery) {
-  query = newQuery;
-
-  let filteredProjects = projects.filter((project) => {
-    let values = Object.values(project).join('\n').toLowerCase();
-    return values.includes(query.toLowerCase());
-  });
-
-  return filteredProjects;
 }
 
 renderProjects(projects, projectsContainer, 'h2');
 renderPieChart(projects);
 
 searchInput.addEventListener('input', (event) => {
-  let filteredProjects = setQuery(event.target.value);
+  query = event.target.value;
+  selectedIndex = -1;
+
+  let filteredProjects = getFilteredProjects();
 
   renderProjects(filteredProjects, projectsContainer, 'h2');
   renderPieChart(filteredProjects);
