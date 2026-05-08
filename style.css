@@ -239,3 +239,67 @@ ul {
 .selected:is(path) {
   fill: var(--color);
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  gap: 1rem;
+}
+
+.stats dt {
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.4;
+}
+
+.gridlines path {
+  display: none;
+}
+
+.tooltip {
+  position: fixed;
+  background: canvas;
+  color: canvastext;
+  border: 1px solid color-mix(in oklch, canvastext 20%, canvas);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tooltip dt {
+  font-weight: bold;
+  color: var(--color-accent);
+}
+
+.tooltip dd {
+  margin: 0 0 0.5rem 0;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
