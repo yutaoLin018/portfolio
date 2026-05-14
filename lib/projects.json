@@ -1,21 +1,30 @@
 [
   {
     "title": "Project 1: Expository Visualization",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/project1.png",
     "description": "An expository visualization showing that ultra-processed foods cost less per 100 calories than minimally processed foods across Walmart, Target, and Whole Foods.",
     "year": 2026
   },
   {
     "title": "Project 2: Persuasive/Deceptive Visualization",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/project2.png",
     "description": "A persuasive visualization project exploring how chart design can shape interpretation and influence audience conclusions.",
-    "year": 2026
+    "year": 2026,
+    "url": "https://yutaolin018.github.io/DSC106-Project-2/"
   },
   {
     "title": "Project 3: Interactive Visualization",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "image": "images/project3.png",
     "description": "An interactive visualization project designed to let users explore data through interaction and dynamic views.",
-    "year": 2026
+    "year": 2026,
+    "url": "https://yutaolin018.github.io/DSC106-Project-3/"
+  },
+  {
+    "title": "BikeWatching: Boston Area Bike Traffic",
+    "image": "images/bikewatching.png",
+    "description": "An interactive map app for exploring bike traffic, bike lanes, and station patterns in the Boston area.",
+    "year": 2026,
+    "url": "https://yutaolin018.github.io/bikewatching/"
   },
   {
     "title": "Final Project",
@@ -24,34 +33,32 @@
     "year": 2026
   },
   {
-    "title": "DSC 106 Project 2",
-    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "A DSC 106 project on persuasive data visualization and visual communication.",
-    "year": 2026
-  },
-  {
     "title": "COGS 108 Group Project",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "A collaborative COGS 108 data science project analyzing outage patterns in the United States.",
-    "year": 2025
+    "year": 2025,
+    "url": "https://github.com/COGS108/Group010_FA25"
   },
   {
     "title": "COGS 9 Final Project",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "A final project for COGS 9 exploring data analysis and programming concepts.",
-    "year": 2025
+    "year": 2025,
+    "url": "https://github.com/yutaoLin018/cogs9-final_project"
   },
   {
     "title": "CSE 158 Final Project",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "A CSE 158 final project focused on recommendation systems and machine learning.",
-    "year": 2025
+    "year": 2025,
+    "url": "https://github.com/kanglee05/CSE158Final"
   },
   {
     "title": "Portfolio Website",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "A personal portfolio website to showcase my coursework, projects, and contact information.",
-    "year": 2026
+    "year": 2026,
+    "url": "https://yutaolin018.github.io/portfolio/"
   },
   {
     "title": "CV Page",
