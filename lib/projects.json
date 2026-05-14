@@ -1,27 +1,27 @@
 [
   {
     "title": "Project 1: Expository Visualization",
-    "image": "images/project1.png",
+    "image": "../images/project1.png",
     "description": "An expository visualization showing that ultra-processed foods cost less per 100 calories than minimally processed foods across Walmart, Target, and Whole Foods.",
     "year": 2026
   },
   {
     "title": "Project 2: Persuasive/Deceptive Visualization",
-    "image": "images/project2.png",
+    "image": "../images/project2.png",
     "description": "A persuasive visualization project exploring how chart design can shape interpretation and influence audience conclusions.",
     "year": 2026,
     "url": "https://yutaolin018.github.io/DSC106-Project-2/"
   },
   {
     "title": "Project 3: Interactive Visualization",
-    "image": "images/project3.png",
+    "image": "../images/project3.png",
     "description": "An interactive visualization project designed to let users explore data through interaction and dynamic views.",
     "year": 2026,
     "url": "https://yutaolin018.github.io/DSC106-Project-3/"
   },
   {
     "title": "BikeWatching: Boston Area Bike Traffic",
-    "image": "images/bikewatching.png",
+    "image": "../images/bikewatching.png",
     "description": "An interactive map app for exploring bike traffic, bike lanes, and station patterns in the Boston area.",
     "year": 2026,
     "url": "https://yutaolin018.github.io/bikewatching/"
