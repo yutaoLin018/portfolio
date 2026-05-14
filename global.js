@@ -113,11 +113,30 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
   for (let project of projects) {
     const article = document.createElement('article');
 
-    article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
-    `;
+    const heading = document.createElement(headingLevel);
+    heading.textContent = project.title;
+
+    const image = document.createElement('img');
+    image.src = project.image;
+    image.alt = project.title;
+
+    const description = document.createElement('p');
+    description.textContent = project.description;
+
+    article.appendChild(heading);
+    article.appendChild(image);
+    article.appendChild(description);
+
+    if (project.url) {
+      const link = document.createElement('a');
+      link.href = project.url;
+      link.textContent = 'View project';
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.classList.add('project-link');
+
+      article.appendChild(link);
+    }
 
     containerElement.appendChild(article);
   }
