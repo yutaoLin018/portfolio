@@ -117,7 +117,11 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     heading.textContent = project.title;
 
     const image = document.createElement('img');
-    image.src = project.image;
+    if (project.image.startsWith('http')) {
+      image.src = project.image;
+    } else {
+      image.src = BASE_PATH + project.image.replace('../', '');
+    }
     image.alt = project.title;
 
     const description = document.createElement('p');
