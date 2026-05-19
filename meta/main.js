@@ -7,6 +7,7 @@ let filteredCommits;
 let commitProgress = 100;
 let timeScale;
 let commitMaxTime;
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
@@ -325,7 +326,7 @@ function updateScatterPlot(data, commits) {
 
     dots
         .selectAll('circle')
-        .data(sortedCommits)
+        .data(sortedCommits, (d) => d.id)
         .join('circle')
         .attr('cx', (d) => xScale(d.datetime))
         .attr('cy', (d) => yScale(d.hourFrac))
@@ -361,6 +362,46 @@ function onTimeSliderChange() {
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
 
     updateScatterPlot(data, filteredCommits);
+    updateFileDisplay(filteredCommits);
+}
+
+function updateFileDisplay(commits) {
+    const lines = commits.flatMap((d) => d.lines);
+
+    const files = d3
+        .groups(lines, (d) => d.file)
+        .map(([name, lines]) => {
+            return { name, lines };
+        })
+        .sort((a, b) => b.lines.length - a.lines.length);
+
+    const filesContainer = d3
+        .select('#files')
+        .selectAll('div')
+        .data(files, (d) => d.name)
+        .join((enter) =>
+            enter.append('div').call((div) => {
+                div.append('dt');
+                div.append('dd');
+            })
+        );
+
+    filesContainer
+        .select('dt')
+        .html(
+            (d) => `
+                <code>${d.name}</code>
+                <small>${d.lines.length} lines</small>
+            `
+        );
+
+    filesContainer
+        .select('dd')
+        .selectAll('div')
+        .data((d) => d.lines)
+        .join('div')
+        .attr('class', 'loc')
+        .attr('style', (d) => `--color: ${colors(d.type)}`);
 }
 
 let data = await loadData();
@@ -379,6 +420,7 @@ console.log(commits);
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
+
 
 d3.select('#commit-progress').on('input', onTimeSliderChange);
 onTimeSliderChange.call(document.querySelector('#commit-progress'));
