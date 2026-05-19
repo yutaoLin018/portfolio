@@ -330,3 +330,24 @@ circle.selected {
   fill: #ff6b6b;
 }
 
+.slider-container {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+}
+
+#commit-progress {
+  flex: 1;
+}
+
+#commit-time {
+  margin-left: auto;
+}
+
+circle {
+  transition: 200ms;
+
+  @starting-style {
+    r: 0;
+  }
+}
