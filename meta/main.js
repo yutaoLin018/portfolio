@@ -10,6 +10,8 @@ let commitProgress = 100;
 let timeScale;
 let commitMaxTime;
 let currentCommitId = null;
+let hasUserStartedScrolling = false;
+let pendingFirstStep = null;
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
@@ -121,7 +123,7 @@ function createBrushSelector(svg) {
 
 function renderSelectionCount(selection) {
     const selectedCommits = selection
-        ? commits.filter((d) => isCommitSelected(selection, d))
+        ? filteredCommits.filter((d) => isCommitSelected(selection, d))
         : [];
 
     const countElement = document.querySelector('#selection-count');
@@ -135,32 +137,15 @@ function renderSelectionCount(selection) {
 
 function renderLanguageBreakdown(selection) {
     const selectedCommits = selection
-        ? commits.filter((d) => isCommitSelected(selection, d))
+        ? filteredCommits.filter((d) => isCommitSelected(selection, d))
         : [];
 
-    const lines = selectedCommits.flatMap((d) => d.lines);
-
-    const breakdown = d3.rollup(
-        lines,
-        (v) => v.length,
-        (d) => d.type
-    );
-
-    const totalLines = d3.sum(Array.from(breakdown.values()));
-
-    const dl = d3.select('#language-breakdown');
-    dl.html('');
-
     if (selectedCommits.length === 0) {
+        updateLanguagePie(filteredCommits);
         return;
     }
 
-    for (const [type, count] of breakdown) {
-        const percent = totalLines > 0 ? (count / totalLines) * 100 : 0;
-
-        dl.append('dt').text(type);
-        dl.append('dd').text(`${count} lines (${percent.toFixed(1)}%)`);
-    }
+    updateLanguagePie(selectedCommits);
 }
 
 function brushed(event) {
@@ -387,6 +372,7 @@ function onTimeSliderChange() {
 
     updateScatterPlot(data, filteredCommits);
     updateFilesWithTransition(filteredCommits);
+    updateLanguagePie(filteredCommits);
 }
 
 function updateFilesWithTransition(commits) {
@@ -502,6 +488,61 @@ function updateFileDisplay(commits) {
     });
 }
 
+function updateLanguagePie(commitsToShow) {
+    const lines = commitsToShow.flatMap((d) => d.lines);
+
+    const pieData = d3
+        .rollups(
+            lines,
+            (v) => v.length,
+            (d) => d.type
+        )
+        .map(([type, count]) => ({ type, count }))
+        .sort((a, b) => d3.descending(a.count, b.count));
+
+    const svg = d3.select('#language-pie');
+    const legend = d3.select('#language-legend');
+
+    svg.selectAll('*').remove();
+    legend.html('');
+
+    if (pieData.length === 0) {
+        return;
+    }
+
+    const pie = d3
+        .pie()
+        .value((d) => d.count)
+        .sort(null);
+
+    const arc = d3
+        .arc()
+        .innerRadius(0)
+        .outerRadius(135);
+
+    svg
+        .selectAll('path')
+        .data(pie(pieData), (d) => d.data.type)
+        .join('path')
+        .attr('d', arc)
+        .attr('fill', (d) => colors(d.data.type))
+        .attr('stroke', 'canvas')
+        .attr('stroke-width', 1)
+        .append('title')
+        .text((d) => `${d.data.type}: ${d.data.count} lines`);
+
+    legend
+        .selectAll('li')
+        .data(pieData, (d) => d.type)
+        .join('li')
+        .html(
+            (d) => `
+                <span class="swatch" style="--color: ${colors(d.type)}"></span>
+                <span>${d.type} (${d.count})</span>
+            `
+        );
+}
+
 function renderCommitStory(commits) {
     d3.select('#scatter-story')
         .selectAll('.step')
@@ -569,7 +610,10 @@ function renderFilesStory(commits) {
 function onStepEnter(response) {
     const commit = response.element.__data__;
 
-    if (commit.id === currentCommitId && response.element.classList.contains('active')) {
+    if (!commit) return;
+
+    if (!hasUserStartedScrolling) {
+        pendingFirstStep = response.element;
         return;
     }
 
@@ -577,7 +621,8 @@ function onStepEnter(response) {
     commitMaxTime = commit.datetime;
     commitProgress = timeScale(commitMaxTime);
 
-    d3.selectAll('.step').classed('active', (d) => d && d.id === commit.id);
+    d3.selectAll('.step').classed('active', false);
+    d3.select(response.element).classed('active', true);
 
     d3.select('#commit-progress').property('value', commitProgress);
 
@@ -592,6 +637,21 @@ function onStepEnter(response) {
 
     updateScatterPlot(data, filteredCommits);
     updateFilesWithTransition(filteredCommits);
+    updateLanguagePie(filteredCommits);
+}
+
+function startStoryOnFirstScroll() {
+    if (hasUserStartedScrolling) return;
+
+    hasUserStartedScrolling = true;
+
+    const firstStep =
+        pendingFirstStep ||
+        document.querySelector('#scrolly-1 .step');
+
+    if (firstStep) {
+        onStepEnter({ element: firstStep });
+    }
 }
 
 let data = await loadData();
@@ -613,9 +673,9 @@ renderCommitStory(commits);
 renderScatterPlot(data, commits);
 renderFilesStory(commits);
 updateFileDisplay(filteredCommits);
+updateLanguagePie(filteredCommits);
 
 d3.select('#commit-progress').on('input', onTimeSliderChange);
-onTimeSliderChange.call(document.querySelector('#commit-progress'));
 
 const scatterScroller = scrollama();
 
@@ -632,7 +692,11 @@ const filesScroller = scrollama();
 filesScroller
     .setup({
         container: '#scrolly-2',
-        step: '#scrolly-2 .step',
+        step: '#files-story .step',
         offset: 0.5,
     })
     .onStepEnter(onStepEnter);
+
+window.addEventListener('scroll', startStoryOnFirstScroll, { once: true });
+window.addEventListener('wheel', startStoryOnFirstScroll, { once: true });
+window.addEventListener('touchmove', startStoryOnFirstScroll, { once: true });
