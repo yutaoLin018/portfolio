@@ -31,16 +31,29 @@
     <time id="commit-time"></time>
   </div>
 
-  <h2>Files</h2>
-  <dl id="files"></dl>
-
-  <h2>Summary Stats</h2>
   <div id="stats"></div>
 
-  <h2>Commits by time of day</h2>
-  <div id="chart"></div>
-  <p id="selection-count">No commits selected</p>
-  <dl id="language-breakdown" class="stats"></dl>
+  <h2>Evolution over time</h2>
+
+  <div id="scrolly-1">
+    <div id="scatter-story"></div>
+
+    <div id="scatter-plot">
+      <h2>Commits by time of day</h2>
+      <div id="chart"></div>
+      <p id="selection-count">No commits selected</p>
+      <dl id="language-breakdown" class="stats"></dl>
+    </div>
+  </div>
+
+  <div id="scrolly-2">
+    <div id="files-section">
+      <h2>Files</h2>
+      <dl id="files"></dl>
+    </div>
+
+    <div id="files-story"></div>
+  </div>
 
   <dl id="commit-tooltip" class="info tooltip" hidden>
     <dt>Commit</dt>

@@ -1,9 +1,8 @@
-
 body {
   font: 100%/1.5 system-ui;
-  max-width: 100ch;
+  max-width: 130ch;
   margin-inline: auto;
-  padding: 1rem;
+  padding: 1rem 3rem;
 }
 
 nav {
@@ -356,14 +355,19 @@ circle {
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 0.5em 1em;
+  border: none;
 }
 
 #files > div {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;
-  padding-block: 0.5em;
+  padding-block: 0.35em;
   border-bottom: 1px solid color-mix(in oklch, canvastext 10%, canvas);
+}
+
+#files > div:first-child {
+  border-top: none;
 }
 
 #files dt {
@@ -392,9 +396,163 @@ circle {
   margin: 0;
 }
 
+.file {
+  will-change: transform;
+}
+
 .loc {
-  width: 0.5em;
+  width: 0.42em;
   aspect-ratio: 1;
   background: var(--color);
   border-radius: 50%;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease,
+    background-color 150ms ease;
+}
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+#scatter-story {
+  flex: 1;
+  position: relative;
+}
+
+#scatter-plot {
+  flex: 1;
+  position: sticky;
+  top: 1rem;
+  left: 0;
+  bottom: auto;
+  height: 65vh;
+}
+
+#chart svg {
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+}
+
+.step {
+  margin-bottom: 35vh;
+  padding: 1rem;
+  border-left: 0.25rem solid var(--color-accent);
+  background: color-mix(in oklch, var(--color-accent), canvas 92%);
+  border-radius: 0.5rem;
+}
+
+.step p {
+  margin-block: 0.5em;
+}
+
+.step.active {
+  outline: 2px solid var(--color-accent);
+  background: color-mix(in oklch, var(--color-accent), canvas 85%);
+}
+
+.slider-container {
+  display: none;
+}
+
+#scrolly-2 {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 4rem;
+  border-top: none;
+}
+
+#scrolly-2 > * {
+  flex: 1;
+}
+
+#files-section {
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+  background: canvas;
+  padding: 0;
+  max-height: 85vh;
+  overflow: auto;
+  z-index: 5;
+  border: none;
+}
+
+#files-section h2 {
+  margin: 0 0 0.75rem;
+  border: none;
+}
+
+#files-story {
+  position: relative;
+  padding-top: 8vh;
+  padding-bottom: 70vh;
+}
+
+#scrolly-2 .step {
+  margin-bottom: 35vh;
+}
+
+#files-section::before,
+#scrolly-2::before {
+  content: none;
+  display: none;
+}
+
+#chart .x-axis text,
+#chart .y-axis text {
+  font-size: 0.9rem;
+}
+
+#chart .x-axis path,
+#chart .y-axis path,
+#chart .x-axis line,
+#chart .y-axis line {
+  stroke-width: 1.25;
+}
+
+.gridlines line {
+  stroke-opacity: 0.5;
+}
+
+#stats .stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  margin-block: 1.5rem;
+}
+
+#stats .stats dt {
+  grid-row: 1;
+  margin: 0;
+  color: canvastext;
+  opacity: 0.65;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#stats .stats dt {
+  grid-row: 1;
+  margin: 0;
+  color: canvastext;
+  opacity: 0.65;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#scrolly-1 {
+  margin-top: 1rem;
+}
+
+#scatter-plot h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
 }
