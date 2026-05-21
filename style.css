@@ -1,8 +1,8 @@
 body {
   font: 100%/1.5 system-ui;
-  max-width: 130ch;
+  max-width: min(130ch, calc(100vw - 3rem));
   margin-inline: auto;
-  padding: 1rem 3rem;
+  padding: 1rem 1.5rem;
 }
 
 nav {
@@ -430,7 +430,8 @@ circle {
   top: 1rem;
   left: 0;
   bottom: auto;
-  height: 65vh;
+  max-height: calc(100vh - 2rem);
+  overflow: visible;
 }
 
 #scatter-plot h2 {
@@ -441,7 +442,7 @@ circle {
 #chart svg {
   width: 100%;
   height: auto;
-  max-height: 65vh;
+  max-height: 42vh;
 }
 
 #chart .x-axis text,
@@ -461,7 +462,7 @@ circle {
 }
 
 .step {
-  margin-bottom: 35vh;
+  margin-bottom: 28vh;
   padding: 1rem;
   border-left: 0.25rem solid var(--color-accent);
   background: color-mix(in oklch, var(--color-accent), canvas 92%);
@@ -573,13 +574,13 @@ body > h2 {
 #language-chart {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 #language-pie {
-  width: 20rem;
-  height: 20rem;
+  width: clamp(13rem, 22vw, 18rem);
+  height: clamp(13rem, 22vw, 18rem);
   overflow: visible;
 }
 
@@ -604,4 +605,52 @@ body > h2 {
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--color);
+}
+
+@media (max-height: 800px) {
+  #chart svg {
+    max-height: 36vh;
+  }
+
+  #language-chart {
+    margin-top: 0.75rem;
+  }
+
+  #language-pie {
+    width: 13rem;
+    height: 13rem;
+  }
+
+  #language-legend {
+    padding: 0.75rem 1rem;
+  }
+
+  #language-legend li {
+    margin-block: 0.35rem;
+    font-size: 0.85rem;
+  }
+
+  .step {
+    margin-bottom: 24vh;
+  }
+}
+
+@media (max-width: 900px) {
+  #scrolly-1,
+  #scrolly-2 {
+    display: block;
+  }
+
+  #scatter-plot,
+  #files-section {
+    position: static;
+  }
+
+  #language-chart {
+    flex-wrap: wrap;
+  }
+
+  #stats .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
