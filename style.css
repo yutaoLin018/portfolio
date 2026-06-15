@@ -17,52 +17,70 @@ html {
   --glass-radius-medium: 1.35rem;
   --glass-radius-large: 1.8rem;
 
-  --glass-blur: 24px;
-  --glass-saturation: 155%;
+  --glass-blur: 34px;
+  --glass-saturation: 185%;
+  --glass-brightness: 112%;
 
-  --glass-border-light: rgb(255 255 255 / 0.58);
-  --glass-border-dark: rgb(255 255 255 / 0.13);
+  --glass-border-light: rgb(255 255 255 / 0.68);
+  --glass-border-dark: rgb(255 255 255 / 0.2);
 
-  --glass-bg: rgb(255 255 255 / 0.58);
-  --glass-bg-strong: rgb(255 255 255 / 0.78);
-  --glass-bg-subtle: rgb(255 255 255 / 0.38);
+  --glass-bg: rgb(255 255 255 / 0.3);
+  --glass-bg-strong: rgb(255 255 255 / 0.46);
+  --glass-bg-subtle: rgb(255 255 255 / 0.18);
+
+  --glass-highlight:
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.42),
+      rgb(255 255 255 / 0.08) 38%,
+      transparent 65%
+    );
+
+  --glass-reflection:
+    radial-gradient(
+      circle at 18% 5%,
+      rgb(255 255 255 / 0.46),
+      transparent 34%
+    );
 
   --glass-shadow:
-    0 1px 0 rgb(255 255 255 / 0.5) inset,
-    0 12px 36px rgb(15 23 42 / 0.09),
-    0 2px 8px rgb(15 23 42 / 0.06);
+    0 1px 0 rgb(255 255 255 / 0.7) inset,
+    0 -1px 0 rgb(255 255 255 / 0.1) inset,
+    0 18px 45px rgb(15 23 42 / 0.1),
+    0 4px 12px rgb(15 23 42 / 0.06);
 
   --glass-shadow-hover:
-    0 1px 0 rgb(255 255 255 / 0.62) inset,
-    0 20px 50px rgb(15 23 42 / 0.14),
-    0 4px 12px rgb(15 23 42 / 0.08);
+    0 1px 0 rgb(255 255 255 / 0.82) inset,
+    0 -1px 0 rgb(255 255 255 / 0.14) inset,
+    0 28px 65px rgb(15 23 42 / 0.16),
+    0 8px 20px rgb(15 23 42 / 0.08);
 
   --page-bg:
     radial-gradient(
-      circle at 10% -10%,
-      rgb(110 168 255 / 0.3),
+      circle at 8% -8%,
+      rgb(95 160 255 / 0.42),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 95% 5%,
+      rgb(255 105 190 / 0.3),
       transparent 32rem
     ),
     radial-gradient(
-      circle at 95% 8%,
-      rgb(255 136 196 / 0.2),
-      transparent 30rem
-    ),
-    radial-gradient(
-      circle at 55% 95%,
-      rgb(122 235 200 / 0.18),
-      transparent 35rem
+      circle at 52% 100%,
+      rgb(77 226 191 / 0.24),
+      transparent 38rem
     ),
     linear-gradient(
       145deg,
-      #f8fbff 0%,
-      #f7f5ff 48%,
-      #f5fbfa 100%
+      #eef5ff 0%,
+      #f4efff 48%,
+      #edf9f6 100%
     );
 
   --text-primary: #172033;
   --text-secondary: #596276;
-  --hairline: rgb(24 34 56 / 0.11);
+  --hairline: rgb(24 34 56 / 0.1);
 
   --focus-ring: color-mix(
     in oklch,
@@ -77,127 +95,201 @@ html {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --glass-bg: rgb(20 25 38 / 0.54);
-    --glass-bg-strong: rgb(24 30 45 / 0.78);
-    --glass-bg-subtle: rgb(18 23 35 / 0.38);
+    --glass-bg: rgb(15 20 33 / 0.3);
+    --glass-bg-strong: rgb(18 24 39 / 0.48);
+    --glass-bg-subtle: rgb(12 17 29 / 0.2);
+
+    --glass-border-light: rgb(255 255 255 / 0.18);
+    --glass-border-dark: rgb(255 255 255 / 0.2);
+
+    --glass-highlight:
+      linear-gradient(
+        145deg,
+        rgb(255 255 255 / 0.16),
+        rgb(255 255 255 / 0.035) 40%,
+        transparent 68%
+      );
+
+    --glass-reflection:
+      radial-gradient(
+        circle at 18% 5%,
+        rgb(255 255 255 / 0.14),
+        transparent 36%
+      );
 
     --glass-shadow:
-      0 1px 0 rgb(255 255 255 / 0.1) inset,
-      0 18px 48px rgb(0 0 0 / 0.34),
-      0 2px 12px rgb(0 0 0 / 0.2);
+      0 1px 0 rgb(255 255 255 / 0.16) inset,
+      0 -1px 0 rgb(255 255 255 / 0.04) inset,
+      0 22px 56px rgb(0 0 0 / 0.38),
+      0 6px 18px rgb(0 0 0 / 0.24);
 
     --glass-shadow-hover:
-      0 1px 0 rgb(255 255 255 / 0.16) inset,
-      0 24px 58px rgb(0 0 0 / 0.44),
-      0 4px 16px rgb(0 0 0 / 0.3);
+      0 1px 0 rgb(255 255 255 / 0.22) inset,
+      0 -1px 0 rgb(255 255 255 / 0.06) inset,
+      0 30px 72px rgb(0 0 0 / 0.5),
+      0 10px 24px rgb(0 0 0 / 0.3);
 
     --page-bg:
       radial-gradient(
-        circle at 8% -5%,
-        rgb(34 91 180 / 0.36),
+        circle at 6% -5%,
+        rgb(32 91 190 / 0.52),
+        transparent 36rem
+      ),
+      radial-gradient(
+        circle at 100% 3%,
+        rgb(160 42 119 / 0.36),
         transparent 34rem
       ),
       radial-gradient(
-        circle at 100% 5%,
-        rgb(154 49 112 / 0.25),
-        transparent 31rem
-      ),
-      radial-gradient(
         circle at 55% 100%,
-        rgb(24 126 105 / 0.2),
-        transparent 38rem
+        rgb(18 130 104 / 0.28),
+        transparent 40rem
       ),
       linear-gradient(
         145deg,
-        #080c15 0%,
-        #111425 48%,
-        #091512 100%
+        #050915 0%,
+        #101326 48%,
+        #071310 100%
       );
 
     --text-primary: #f5f7ff;
-    --text-secondary: #aeb8cc;
-    --hairline: rgb(255 255 255 / 0.11);
+    --text-secondary: #b3bdd2;
+    --hairline: rgb(255 255 255 / 0.1);
   }
 }
 
-/* Manual light mode */
+/* =========================================================
+   MANUAL LIGHT MODE
+   ========================================================= */
 
 html[style*="color-scheme: light"] {
-  --glass-bg: rgb(255 255 255 / 0.58);
-  --glass-bg-strong: rgb(255 255 255 / 0.78);
-  --glass-bg-subtle: rgb(255 255 255 / 0.38);
+  --glass-bg: rgb(255 255 255 / 0.3);
+  --glass-bg-strong: rgb(255 255 255 / 0.46);
+  --glass-bg-subtle: rgb(255 255 255 / 0.18);
 
-  --page-bg:
-    radial-gradient(
-      circle at 10% -10%,
-      rgb(110 168 255 / 0.3),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 95% 8%,
-      rgb(255 136 196 / 0.2),
-      transparent 30rem
-    ),
-    radial-gradient(
-      circle at 55% 95%,
-      rgb(122 235 200 / 0.18),
-      transparent 35rem
-    ),
+  --glass-border-light: rgb(255 255 255 / 0.68);
+  --glass-border-dark: rgb(255 255 255 / 0.2);
+
+  --glass-highlight:
     linear-gradient(
       145deg,
-      #f8fbff 0%,
-      #f7f5ff 48%,
-      #f5fbfa 100%
+      rgb(255 255 255 / 0.42),
+      rgb(255 255 255 / 0.08) 38%,
+      transparent 65%
     );
 
-  --text-primary: #172033;
-  --text-secondary: #596276;
-  --hairline: rgb(24 34 56 / 0.11);
-}
-
-/* Manual dark mode */
-
-html[style*="color-scheme: dark"] {
-  --glass-bg: rgb(20 25 38 / 0.54);
-  --glass-bg-strong: rgb(24 30 45 / 0.78);
-  --glass-bg-subtle: rgb(18 23 35 / 0.38);
+  --glass-reflection:
+    radial-gradient(
+      circle at 18% 5%,
+      rgb(255 255 255 / 0.46),
+      transparent 34%
+    );
 
   --glass-shadow:
-    0 1px 0 rgb(255 255 255 / 0.1) inset,
-    0 18px 48px rgb(0 0 0 / 0.34),
-    0 2px 12px rgb(0 0 0 / 0.2);
+    0 1px 0 rgb(255 255 255 / 0.7) inset,
+    0 -1px 0 rgb(255 255 255 / 0.1) inset,
+    0 18px 45px rgb(15 23 42 / 0.1),
+    0 4px 12px rgb(15 23 42 / 0.06);
 
   --glass-shadow-hover:
-    0 1px 0 rgb(255 255 255 / 0.16) inset,
-    0 24px 58px rgb(0 0 0 / 0.44),
-    0 4px 16px rgb(0 0 0 / 0.3);
+    0 1px 0 rgb(255 255 255 / 0.82) inset,
+    0 -1px 0 rgb(255 255 255 / 0.14) inset,
+    0 28px 65px rgb(15 23 42 / 0.16),
+    0 8px 20px rgb(15 23 42 / 0.08);
 
   --page-bg:
     radial-gradient(
-      circle at 8% -5%,
-      rgb(34 91 180 / 0.36),
+      circle at 8% -8%,
+      rgb(95 160 255 / 0.42),
       transparent 34rem
     ),
     radial-gradient(
-      circle at 100% 5%,
-      rgb(154 49 112 / 0.25),
-      transparent 31rem
+      circle at 95% 5%,
+      rgb(255 105 190 / 0.3),
+      transparent 32rem
     ),
     radial-gradient(
-      circle at 55% 100%,
-      rgb(24 126 105 / 0.2),
+      circle at 52% 100%,
+      rgb(77 226 191 / 0.24),
       transparent 38rem
     ),
     linear-gradient(
       145deg,
-      #080c15 0%,
-      #111425 48%,
-      #091512 100%
+      #eef5ff 0%,
+      #f4efff 48%,
+      #edf9f6 100%
+    );
+
+  --text-primary: #172033;
+  --text-secondary: #596276;
+  --hairline: rgb(24 34 56 / 0.1);
+}
+
+/* =========================================================
+   MANUAL DARK MODE
+   ========================================================= */
+
+html[style*="color-scheme: dark"] {
+  --glass-bg: rgb(15 20 33 / 0.3);
+  --glass-bg-strong: rgb(18 24 39 / 0.48);
+  --glass-bg-subtle: rgb(12 17 29 / 0.2);
+
+  --glass-border-light: rgb(255 255 255 / 0.18);
+  --glass-border-dark: rgb(255 255 255 / 0.2);
+
+  --glass-highlight:
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.16),
+      rgb(255 255 255 / 0.035) 40%,
+      transparent 68%
+    );
+
+  --glass-reflection:
+    radial-gradient(
+      circle at 18% 5%,
+      rgb(255 255 255 / 0.14),
+      transparent 36%
+    );
+
+  --glass-shadow:
+    0 1px 0 rgb(255 255 255 / 0.16) inset,
+    0 -1px 0 rgb(255 255 255 / 0.04) inset,
+    0 22px 56px rgb(0 0 0 / 0.38),
+    0 6px 18px rgb(0 0 0 / 0.24);
+
+  --glass-shadow-hover:
+    0 1px 0 rgb(255 255 255 / 0.22) inset,
+    0 -1px 0 rgb(255 255 255 / 0.06) inset,
+    0 30px 72px rgb(0 0 0 / 0.5),
+    0 10px 24px rgb(0 0 0 / 0.3);
+
+  --page-bg:
+    radial-gradient(
+      circle at 6% -5%,
+      rgb(32 91 190 / 0.52),
+      transparent 36rem
+    ),
+    radial-gradient(
+      circle at 100% 3%,
+      rgb(160 42 119 / 0.36),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 55% 100%,
+      rgb(18 130 104 / 0.28),
+      transparent 40rem
+    ),
+    linear-gradient(
+      145deg,
+      #050915 0%,
+      #101326 48%,
+      #071310 100%
     );
 
   --text-primary: #f5f7ff;
-  --text-secondary: #aeb8cc;
-  --hairline: rgb(255 255 255 / 0.11);
+  --text-secondary: #b3bdd2;
+  --hairline: rgb(255 255 255 / 0.1);
 }
 
 /* =========================================================
@@ -217,6 +309,7 @@ html {
 
 body {
   position: relative;
+
   width: min(
     var(--content-width),
     calc(100% - var(--page-gutter) * 2)
@@ -232,7 +325,15 @@ body {
   margin-inline: auto;
 
   color: var(--text-primary);
-  font: 100%/1.5 system-ui, sans-serif;
+
+  font:
+    100%/1.5
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    sans-serif;
 
   background: transparent;
 }
@@ -258,11 +359,12 @@ body::before {
 
   background-size: 48px 48px;
 
-  mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 68%
-  );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 68%
+    );
 }
 
 input,
@@ -274,6 +376,7 @@ select {
 
 img {
   display: block;
+
   width: 100%;
   max-width: 350px;
   height: auto;
@@ -400,7 +503,7 @@ article h3 {
 }
 
 /* =========================================================
-   GLASS MATERIAL
+   SHARED GLASS MATERIAL
    ========================================================= */
 
 nav,
@@ -422,11 +525,13 @@ button,
 select {
   -webkit-backdrop-filter:
     blur(var(--glass-blur))
-    saturate(var(--glass-saturation));
+    saturate(var(--glass-saturation))
+    brightness(var(--glass-brightness));
 
   backdrop-filter:
     blur(var(--glass-blur))
-    saturate(var(--glass-saturation));
+    saturate(var(--glass-saturation))
+    brightness(var(--glass-brightness));
 }
 
 /* =========================================================
@@ -456,11 +561,8 @@ nav {
   overflow: hidden;
 
   background:
-    linear-gradient(
-      135deg,
-      rgb(255 255 255 / 0.24),
-      transparent 45%
-    ),
+    var(--glass-reflection),
+    var(--glass-highlight),
     var(--glass-bg);
 
   border:
@@ -468,7 +570,10 @@ nav {
 
   border-radius: 999px;
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.2) inset;
 
   transform: translateX(-50%);
 
@@ -488,8 +593,28 @@ nav::before {
       18rem circle at
       var(--pointer-x, 50%)
       var(--pointer-y, 50%),
-      rgb(255 255 255 / 0.26),
+      rgb(255 255 255 / 0.3),
       transparent 62%
+    );
+}
+
+nav::after {
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+
+  pointer-events: none;
+  content: "";
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      110deg,
+      rgb(255 255 255 / 0.2),
+      transparent 28%,
+      transparent 70%,
+      rgb(255 255 255 / 0.08)
     );
 }
 
@@ -546,7 +671,10 @@ nav::before {
   color: var(--text-primary);
 
   background:
-    rgb(255 255 255 / 0.16);
+    rgb(255 255 255 / 0.14);
+
+  border-color:
+    rgb(255 255 255 / 0.12);
 
   transform: translateY(-1px);
 }
@@ -557,19 +685,19 @@ nav::before {
   background:
     linear-gradient(
       180deg,
-      rgb(255 255 255 / 0.5),
-      rgb(255 255 255 / 0.14)
+      rgb(255 255 255 / 0.34),
+      rgb(255 255 255 / 0.1)
     );
 
   border-color:
-    rgb(255 255 255 / 0.34);
+    rgb(255 255 255 / 0.4);
 
   box-shadow:
     0 1px 0
-      rgb(255 255 255 / 0.56)
+      rgb(255 255 255 / 0.65)
       inset,
-    0 5px 16px
-      rgb(15 23 42 / 0.1);
+    0 8px 24px
+      rgb(15 23 42 / 0.09);
 }
 
 /* Compact theme selector */
@@ -613,20 +741,23 @@ nav::before {
 
   background:
     linear-gradient(
-      180deg,
-      rgb(255 255 255 / 0.3),
-      rgb(255 255 255 / 0.12)
-    );
+      145deg,
+      rgb(255 255 255 / 0.22),
+      transparent 48%
+    ),
+    var(--glass-bg-strong);
 
   border:
-    1px solid rgb(255 255 255 / 0.28);
+    1px solid var(--glass-border-light);
 
   border-radius: 999px;
 
   box-shadow:
     0 1px 0
-      rgb(255 255 255 / 0.4)
-      inset;
+      rgb(255 255 255 / 0.52)
+      inset,
+    0 4px 14px
+      rgb(15 23 42 / 0.06);
 
   cursor: pointer;
 }
@@ -642,14 +773,20 @@ button,
 select {
   color: var(--text-primary);
 
-  background: var(--glass-bg-strong);
+  background:
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.22),
+      transparent 48%
+    ),
+    var(--glass-bg-strong);
 
   border:
     1px solid var(--glass-border-light);
 
   box-shadow:
     0 1px 0
-      rgb(255 255 255 / 0.38)
+      rgb(255 255 255 / 0.45)
       inset,
     0 5px 16px
       rgb(15 23 42 / 0.06);
@@ -717,7 +854,10 @@ form {
   padding:
     clamp(1rem, 3vw, 2rem);
 
-  background: var(--glass-bg);
+  background:
+    var(--glass-reflection),
+    var(--glass-highlight),
+    var(--glass-bg);
 
   border:
     1px solid var(--glass-border-light);
@@ -725,7 +865,10 @@ form {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
 }
 
 form label {
@@ -772,12 +915,19 @@ button {
   overflow: hidden;
 
   background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.24),
-      transparent 48%
-    ),
+    var(--glass-reflection),
+    var(--glass-highlight),
     var(--glass-bg);
+
+  background-size:
+    130% 130%,
+    100% 100%,
+    100% 100%;
+
+  background-position:
+    0% 0%,
+    center,
+    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -785,9 +935,13 @@ button {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.16) inset;
 
   transition:
+    background-position 500ms ease,
     transform 260ms
       cubic-bezier(.2, .8, .2, 1),
     box-shadow 260ms ease,
@@ -810,7 +964,7 @@ button {
       18rem circle at
       var(--pointer-x, 50%)
       var(--pointer-y, 25%),
-      rgb(255 255 255 / 0.32),
+      rgb(255 255 255 / 0.38),
       transparent 62%
     );
 
@@ -819,11 +973,42 @@ button {
   transition: opacity 220ms ease;
 }
 
+.projects article::after {
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+
+  pointer-events: none;
+  content: "";
+
+  border-radius:
+    calc(
+      var(--glass-radius-large)
+      - 1px
+    );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.22),
+      transparent 30%,
+      transparent 72%,
+      rgb(255 255 255 / 0.08)
+    );
+
+  opacity: 0.8;
+}
+
 .projects article:hover {
   z-index: 2;
 
+  background-position:
+    18% 10%,
+    center,
+    center;
+
   border-color:
-    rgb(255 255 255 / 0.72);
+    rgb(255 255 255 / 0.76);
 
   box-shadow:
     var(--glass-shadow-hover);
@@ -854,7 +1039,7 @@ button {
     );
 
   border:
-    1px solid rgb(255 255 255 / 0.28);
+    1px solid rgb(255 255 255 / 0.3);
 
   border-radius:
     calc(
@@ -864,7 +1049,7 @@ button {
 
   box-shadow:
     0 1px 0
-      rgb(255 255 255 / 0.4)
+      rgb(255 255 255 / 0.45)
       inset,
     0 10px 28px
       rgb(15 23 42 / 0.12);
@@ -923,12 +1108,22 @@ button {
   text-decoration: none;
 
   background:
-    rgb(255 255 255 / 0.2);
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.2),
+      transparent
+    ),
+    var(--glass-bg-subtle);
 
   border:
     1px solid rgb(255 255 255 / 0.28);
 
   border-radius: 999px;
+
+  box-shadow:
+    0 1px 0
+      rgb(255 255 255 / 0.42)
+      inset;
 
   transition:
     background-color 180ms ease,
@@ -939,7 +1134,7 @@ button {
   text-decoration: none;
 
   background:
-    rgb(255 255 255 / 0.34);
+    rgb(255 255 255 / 0.26);
 
   transform: translateY(-1px);
 }
@@ -969,12 +1164,19 @@ button {
   padding: 1rem 1.1rem;
 
   background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.2),
-      transparent
-    ),
-    var(--glass-bg-subtle);
+    var(--glass-reflection),
+    var(--glass-highlight),
+    var(--glass-bg);
+
+  background-size:
+    130% 130%,
+    100% 100%,
+    100% 100%;
+
+  background-position:
+    0% 0%,
+    center,
+    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -982,7 +1184,27 @@ button {
   border-radius:
     var(--glass-radius-medium);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
+
+  transition:
+    background-position 500ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.github-stats > div:hover {
+  background-position:
+    18% 10%,
+    center,
+    center;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    var(--glass-shadow-hover);
 }
 
 .github-stats dt {
@@ -1039,7 +1261,10 @@ button {
 
   margin-block: 2em;
 
-  background: var(--glass-bg);
+  background:
+    var(--glass-reflection),
+    var(--glass-highlight),
+    var(--glass-bg);
 
   border:
     1px solid var(--glass-border-light);
@@ -1047,7 +1272,10 @@ button {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
 }
 
 #projects-pie-plot {
@@ -1075,13 +1303,21 @@ button {
 
   list-style: none;
 
-  background: var(--glass-bg-subtle);
+  background:
+    var(--glass-reflection),
+    var(--glass-highlight),
+    var(--glass-bg);
 
   border:
     1px solid var(--glass-border-light);
 
   border-radius:
     var(--glass-radius-medium);
+
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.12) inset;
 }
 
 .legend-item {
@@ -1104,7 +1340,7 @@ button {
 
 .legend-item:hover {
   background:
-    rgb(255 255 255 / 0.18);
+    rgb(255 255 255 / 0.16);
 
   transform: translateY(-1px);
 }
@@ -1252,8 +1488,12 @@ path:not(:hover) {
 
 #scatter-plot {
   position: sticky;
+
   top:
-    calc(var(--nav-height) + 1.5rem);
+    calc(
+      var(--nav-height)
+      + 1.5rem
+    );
 
   flex: 1;
 
@@ -1269,7 +1509,9 @@ path:not(:hover) {
   overflow: visible;
 
   background:
-    var(--glass-bg-subtle);
+    var(--glass-reflection),
+    var(--glass-highlight),
+    var(--glass-bg);
 
   border:
     1px solid var(--glass-border-light);
@@ -1277,7 +1519,10 @@ path:not(:hover) {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
 }
 
 #scatter-plot h2 {
@@ -1311,12 +1556,19 @@ path:not(:hover) {
   padding: 1rem;
 
   background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.2),
-      transparent
-    ),
+    var(--glass-reflection),
+    var(--glass-highlight),
     var(--glass-bg);
+
+  background-size:
+    130% 130%,
+    100% 100%,
+    100% 100%;
+
+  background-position:
+    0% 0%,
+    center,
+    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -1324,13 +1576,17 @@ path:not(:hover) {
   border-radius:
     var(--glass-radius-medium);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
 
   opacity: 0.72;
 
   transform: scale(0.985);
 
   transition:
+    background-position 500ms ease,
     opacity 220ms ease,
     transform 220ms ease,
     border-color 220ms ease,
@@ -1344,13 +1600,10 @@ path:not(:hover) {
 .step.active {
   opacity: 1;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.28),
-      transparent
-    ),
-    var(--glass-bg-strong);
+  background-position:
+    18% 10%,
+    center,
+    center;
 
   border-color:
     color-mix(
@@ -1380,6 +1633,11 @@ path:not(:hover) {
   pointer-events: none;
 
   background:
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.22),
+      transparent 48%
+    ),
     var(--glass-bg-strong);
 
   border:
@@ -1480,8 +1738,12 @@ circle {
 
 #files-section {
   position: sticky;
+
   top:
-    calc(var(--nav-height) + 1.5rem);
+    calc(
+      var(--nav-height)
+      + 1.5rem
+    );
 
   z-index: 5;
 
@@ -1499,6 +1761,8 @@ circle {
   overflow: auto;
 
   background:
+    var(--glass-reflection),
+    var(--glass-highlight),
     var(--glass-bg);
 
   border:
@@ -1507,7 +1771,10 @@ circle {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
 }
 
 #files-section h2 {
@@ -1631,10 +1898,18 @@ circle {
 
 #language-pie {
   width:
-    clamp(13rem, 22vw, 18rem);
+    clamp(
+      13rem,
+      22vw,
+      18rem
+    );
 
   height:
-    clamp(13rem, 22vw, 18rem);
+    clamp(
+      13rem,
+      22vw,
+      18rem
+    );
 
   overflow: visible;
 }
@@ -1646,13 +1921,20 @@ circle {
   list-style: none;
 
   background:
-    var(--glass-bg-subtle);
+    var(--glass-reflection),
+    var(--glass-highlight),
+    var(--glass-bg);
 
   border:
     1px solid var(--glass-border-light);
 
   border-radius:
     var(--glass-radius-medium);
+
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.12) inset;
 }
 
 #language-legend li {
@@ -1683,15 +1965,26 @@ circle {
 
 .cv-page section {
   padding:
-    clamp(1rem, 3vw, 2rem);
+    clamp(
+      1rem,
+      3vw,
+      2rem
+    );
 
   background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.2),
-      transparent 45%
-    ),
+    var(--glass-reflection),
+    var(--glass-highlight),
     var(--glass-bg);
+
+  background-size:
+    130% 130%,
+    100% 100%,
+    100% 100%;
+
+  background-position:
+    0% 0%,
+    center,
+    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -1699,7 +1992,27 @@ circle {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow: var(--glass-shadow);
+  box-shadow:
+    var(--glass-shadow),
+    0 0 0 0.5px
+      rgb(255 255 255 / 0.14) inset;
+
+  transition:
+    background-position 500ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.cv-page section:hover {
+  background-position:
+    18% 10%,
+    center,
+    center;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    var(--glass-shadow-hover);
 }
 
 .cv-page article {
@@ -1758,62 +2071,49 @@ circle {
     background:
       linear-gradient(
         180deg,
-        rgb(255 255 255 / 0.15),
-        rgb(255 255 255 / 0.05)
+        rgb(255 255 255 / 0.14),
+        rgb(255 255 255 / 0.04)
       );
 
     border-color:
-      rgb(255 255 255 / 0.14);
+      rgb(255 255 255 / 0.18);
   }
 
   .color-scheme select {
     background:
       linear-gradient(
-        180deg,
-        rgb(255 255 255 / 0.12),
-        rgb(255 255 255 / 0.05)
-      );
+        145deg,
+        rgb(255 255 255 / 0.1),
+        transparent 48%
+      ),
+      var(--glass-bg-strong);
 
     border-color:
-      rgb(255 255 255 / 0.13);
+      rgb(255 255 255 / 0.16);
   }
 }
 
-/* Manual dark mode component fixes */
+/* =========================================================
+   MANUAL DARK MODE COMPONENT FIXES
+   ========================================================= */
 
 html[style*="color-scheme: dark"] nav,
-html[style*="color-scheme: dark"]
-.projects article,
-html[style*="color-scheme: dark"]
-.github-stats > div,
-html[style*="color-scheme: dark"]
-.chart-container,
-html[style*="color-scheme: dark"]
-.legend,
-html[style*="color-scheme: dark"]
-.searchBar,
-html[style*="color-scheme: dark"]
-.step,
-html[style*="color-scheme: dark"]
-#files-section,
-html[style*="color-scheme: dark"]
-#scatter-plot,
-html[style*="color-scheme: dark"]
-#language-legend,
-html[style*="color-scheme: dark"]
-.tooltip,
-html[style*="color-scheme: dark"]
-.cv-page section,
-html[style*="color-scheme: dark"]
-form,
-html[style*="color-scheme: dark"]
-input,
-html[style*="color-scheme: dark"]
-textarea,
-html[style*="color-scheme: dark"]
-button,
-html[style*="color-scheme: dark"]
-select {
+html[style*="color-scheme: dark"] .projects article,
+html[style*="color-scheme: dark"] .github-stats > div,
+html[style*="color-scheme: dark"] .chart-container,
+html[style*="color-scheme: dark"] .legend,
+html[style*="color-scheme: dark"] .searchBar,
+html[style*="color-scheme: dark"] .step,
+html[style*="color-scheme: dark"] #files-section,
+html[style*="color-scheme: dark"] #scatter-plot,
+html[style*="color-scheme: dark"] #language-legend,
+html[style*="color-scheme: dark"] .tooltip,
+html[style*="color-scheme: dark"] .cv-page section,
+html[style*="color-scheme: dark"] form,
+html[style*="color-scheme: dark"] input,
+html[style*="color-scheme: dark"] textarea,
+html[style*="color-scheme: dark"] button,
+html[style*="color-scheme: dark"] select {
   border-color:
     var(--glass-border-dark);
 }
@@ -1823,25 +2123,26 @@ html[style*="color-scheme: dark"]
   background:
     linear-gradient(
       180deg,
-      rgb(255 255 255 / 0.15),
-      rgb(255 255 255 / 0.05)
+      rgb(255 255 255 / 0.14),
+      rgb(255 255 255 / 0.04)
     );
 
   border-color:
-    rgb(255 255 255 / 0.14);
+    rgb(255 255 255 / 0.18);
 }
 
 html[style*="color-scheme: dark"]
 .color-scheme select {
   background:
     linear-gradient(
-      180deg,
-      rgb(255 255 255 / 0.12),
-      rgb(255 255 255 / 0.05)
-    );
+      145deg,
+      rgb(255 255 255 / 0.1),
+      transparent 48%
+    ),
+    var(--glass-bg-strong);
 
   border-color:
-    rgb(255 255 255 / 0.13);
+    rgb(255 255 255 / 0.16);
 }
 
 /* =========================================================
@@ -1932,7 +2233,10 @@ html[style*="color-scheme: dark"]
 
   #stats .stats {
     grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+      repeat(
+        3,
+        minmax(0, 1fr)
+      );
   }
 }
 
@@ -1962,7 +2266,11 @@ html[style*="color-scheme: dark"]
 
   body > h1 {
     font-size:
-      clamp(2.7rem, 15vw, 4.5rem);
+      clamp(
+        2.7rem,
+        15vw,
+        4.5rem
+      );
   }
 
   nav {
@@ -1978,7 +2286,8 @@ html[style*="color-scheme: dark"]
     min-height: 2.9rem;
 
     padding:
-      0.55rem 0.7rem;
+      0.55rem
+      0.7rem;
 
     font-size: 0.83rem;
   }
@@ -2019,7 +2328,11 @@ html[style*="color-scheme: dark"]
   }
 
   #projects-pie-plot {
-    width: min(100%, 20em);
+    width:
+      min(
+        100%,
+        20em
+      );
 
     margin-inline: auto;
   }
@@ -2095,7 +2408,8 @@ html[style*="color-scheme: dark"]
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
+    scroll-behavior:
+      auto !important;
 
     transition-duration:
       0.001ms !important;
@@ -2109,6 +2423,8 @@ html[style*="color-scheme: dark"]
 
   .projects article:hover,
   .projects article:hover img,
+  .github-stats > div:hover,
+  .cv-page section:hover,
   .legend-item:hover,
   .project-link:hover,
   .nav-links a:hover {
@@ -2160,21 +2476,21 @@ html[style*="color-scheme: dark"]
     --glass-bg:
       color-mix(
         in srgb,
-        canvas 94%,
+        canvas 92%,
         transparent
       );
 
     --glass-bg-strong:
       color-mix(
         in srgb,
-        canvas 98%,
+        canvas 96%,
         transparent
       );
 
     --glass-bg-subtle:
       color-mix(
         in srgb,
-        canvas 90%,
+        canvas 88%,
         transparent
       );
   }
