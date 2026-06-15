@@ -5,48 +5,7 @@ function $$(selector, context = document) {
 }
 
 /* ---------------------------------------------------------
-   APPEARANCE CONTROL
-   --------------------------------------------------------- */
-
-document.body.insertAdjacentHTML(
-  "afterbegin",
-  `
-    <label class="color-scheme">
-      <span>Appearance</span>
-
-      <select aria-label="Choose website appearance">
-        <option value="light dark">Auto</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </label>
-  `
-);
-
-const select = document.querySelector(
-  ".color-scheme select"
-);
-
-function setColorScheme(colorScheme) {
-  document.documentElement.style.colorScheme =
-    colorScheme;
-
-  select.value = colorScheme;
-}
-
-if (localStorage.colorScheme) {
-  setColorScheme(localStorage.colorScheme);
-}
-
-select.addEventListener("change", (event) => {
-  const colorScheme = event.target.value;
-
-  setColorScheme(colorScheme);
-  localStorage.colorScheme = colorScheme;
-});
-
-/* ---------------------------------------------------------
-   NAVIGATION
+   NAVIGATION + APPEARANCE
    --------------------------------------------------------- */
 
 const BASE_PATH =
@@ -83,13 +42,10 @@ const pages = [
 ];
 
 const nav = document.createElement("nav");
+nav.setAttribute("aria-label", "Primary navigation");
 
-nav.setAttribute(
-  "aria-label",
-  "Primary navigation"
-);
-
-document.body.prepend(nav);
+const navLinks = document.createElement("div");
+navLinks.className = "nav-links";
 
 function normalizePath(pathname) {
   if (pathname.endsWith("/")) {
@@ -136,8 +92,60 @@ for (const page of pages) {
     link.rel = "noopener noreferrer";
   }
 
-  nav.append(link);
+  navLinks.append(link);
 }
+
+/* Compact appearance selector */
+
+const appearanceControl =
+  document.createElement("label");
+
+appearanceControl.className =
+  "color-scheme";
+
+appearanceControl.innerHTML = `
+  <select aria-label="Choose website appearance">
+    <option value="light dark">Auto</option>
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+`;
+
+nav.append(
+  navLinks,
+  appearanceControl
+);
+
+document.body.prepend(nav);
+
+const select =
+  appearanceControl.querySelector("select");
+
+function setColorScheme(colorScheme) {
+  document.documentElement.style.colorScheme =
+    colorScheme;
+
+  select.value = colorScheme;
+}
+
+if (localStorage.colorScheme) {
+  setColorScheme(
+    localStorage.colorScheme
+  );
+}
+
+select.addEventListener(
+  "change",
+  (event) => {
+    const colorScheme =
+      event.target.value;
+
+    setColorScheme(colorScheme);
+
+    localStorage.colorScheme =
+      colorScheme;
+  }
+);
 
 /* ---------------------------------------------------------
    LIQUID HIGHLIGHT
@@ -195,7 +203,9 @@ function initializeLiquidCards() {
     (card) => {
       if (!card.dataset.liquidReady) {
         attachLiquidHighlight(card);
-        card.dataset.liquidReady = "true";
+
+        card.dataset.liquidReady =
+          "true";
       }
     }
   );
@@ -220,7 +230,8 @@ initializeLiquidCards();
    CONTACT FORM
    --------------------------------------------------------- */
 
-const form = document.querySelector("form");
+const form =
+  document.querySelector("form");
 
 form?.addEventListener(
   "submit",
