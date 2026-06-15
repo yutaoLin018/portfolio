@@ -1,3 +1,9 @@
+html {
+  color-scheme: light dark;
+  --color-accent: oklch(65% 50% 0);
+  accent-color: var(--color-accent);
+}
+
 body {
   font: 100%/1.5 system-ui;
   max-width: min(130ch, calc(100vw - 3rem));
@@ -13,23 +19,21 @@ nav {
 
 nav a {
   flex: 1;
-  text-decoration: none;
+  padding: 0.5em;
   color: inherit;
   text-align: center;
-  padding: 0.5em;
+  text-decoration: none;
 }
 
 nav a:hover,
 nav a.current {
-  border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
-  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-}
-
-html {
-  color-scheme: light dark;
-  --color-accent: oklch(65% 50% 0);
-  accent-color: var(--color-accent);
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: color-mix(
+    in oklch,
+    var(--color-accent),
+    canvas 85%
+  );
 }
 
 .color-scheme {
@@ -47,15 +51,9 @@ select {
 }
 
 img {
-  max-width: 350px;
   width: 100%;
+  max-width: 350px;
   height: auto;
-}
-
-input,
-textarea,
-button {
-  font: inherit;
 }
 
 form {
@@ -66,14 +64,14 @@ form {
 
 form label {
   display: grid;
-  grid-template-columns: subgrid;
   grid-column: 1 / -1;
+  grid-template-columns: subgrid;
 }
 
 input,
 textarea {
-  width: 100%;
   box-sizing: border-box;
+  width: 100%;
 }
 
 textarea {
@@ -94,7 +92,8 @@ article {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  grid-template-columns:
+    repeat(auto-fill, minmax(16em, 1fr));
   gap: 2rem 1.5rem;
 }
 
@@ -106,16 +105,16 @@ article {
 }
 
 .projects h2 {
-  margin: 0;
   min-height: 2.6em;
+  margin: 0;
 }
 
 .project-link {
   display: inline-block;
   margin-top: 0.5rem;
   color: var(--color-accent);
-  text-decoration: none;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .project-link:hover {
@@ -127,7 +126,11 @@ article {
   max-width: none;
   height: 12rem;
   object-fit: cover;
-  background: color-mix(in oklch, canvastext 10%, canvas);
+  background: color-mix(
+    in oklch,
+    canvastext 10%,
+    canvas
+  );
 }
 
 .projects article p {
@@ -138,14 +141,19 @@ h1 {
   font-size: 400%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
 
 section > header {
-  border-bottom: 2px solid oklch(80% 3% 200);
   margin-bottom: 1rem;
+  border-bottom: 2px solid oklch(80% 3% 200);
 }
 
 section h2 {
@@ -165,6 +173,8 @@ ul {
   padding-left: 1.5rem;
 }
 
+/* Homepage GitHub statistics */
+
 #profile-stats {
   margin: 2rem 0;
 }
@@ -176,26 +186,34 @@ ul {
   margin: 0;
 }
 
+.github-stats > div {
+  min-width: 0;
+}
+
 .github-stats dt {
-  grid-row: 1;
   margin: 0;
-  text-transform: uppercase;
-  font-size: 0.8rem;
   color: #6b7280;
+  font-size: 0.8rem;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .github-stats dd {
-  grid-row: 2;
   margin: 0;
   font-size: 2rem;
 }
 
-#projects-pie-plot {
-  max-width: 20em;
-  margin-block: 2em;
-  overflow: visible;
+.github-updated,
+.meta-repository-link {
+  margin-top: 0.75rem;
+  color: color-mix(
+    in oklch,
+    canvastext 70%,
+    canvas
+  );
 }
+
+/* Projects page */
 
 .chart-container {
   display: flex;
@@ -206,24 +224,27 @@ ul {
 
 #projects-pie-plot {
   max-width: 20em;
+  margin-block: 2em;
   overflow: visible;
 }
 
 .legend {
-  flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  flex: 1;
+  grid-template-columns:
+    repeat(auto-fill, minmax(9em, 1fr));
   gap: 0.75em 1.25em;
-  border: 1px solid oklch(80% 3% 200);
   padding: 1em;
   margin: 0;
   list-style: none;
+  border: 1px solid oklch(80% 3% 200);
 }
 
 .legend-item {
   display: flex;
   align-items: center;
   gap: 0.5em;
+  cursor: pointer;
 }
 
 .swatch {
@@ -236,10 +257,10 @@ ul {
 
 .searchBar {
   display: block;
-  width: 100%;
   box-sizing: border-box;
-  margin-block: 1.5em;
+  width: 100%;
   padding: 0.75em 1em;
+  margin-block: 1.5em;
   border: 1px solid oklch(80% 3% 200);
   border-radius: 0.5em;
 }
@@ -249,12 +270,9 @@ ul {
   transition: 300ms;
 }
 
-#projects-pie-plot:has(path:hover) path:not(:hover) {
+#projects-pie-plot:has(path:hover)
+path:not(:hover) {
   opacity: 0.5;
-}
-
-.legend-item {
-  cursor: pointer;
 }
 
 .selected {
@@ -265,15 +283,18 @@ ul {
   fill: var(--color);
 }
 
+/* General statistics */
+
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(8em, 1fr));
   gap: 1rem;
 }
 
 .stats dt {
-  font-weight: bold;
   color: var(--color-accent);
+  font-weight: bold;
 }
 
 .stats dd {
@@ -281,9 +302,11 @@ ul {
   font-size: 1.5rem;
 }
 
+/* Meta page scatterplot */
+
 .gridlines line {
   stroke: #ccc;
-  stroke-opacity: 0.4;
+  stroke-opacity: 0.5;
 }
 
 .gridlines path {
@@ -292,23 +315,27 @@ ul {
 
 .tooltip {
   position: fixed;
-  background: canvas;
-  color: canvastext;
-  border: 1px solid color-mix(in oklch, canvastext 20%, canvas);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
-  pointer-events: none;
   z-index: 10;
+  padding: 0.75rem 1rem;
+  color: canvastext;
+  pointer-events: none;
+  background: canvas;
+  border: 1px solid color-mix(
+    in oklch,
+    canvastext 20%,
+    canvas
+  );
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
 }
 
 .tooltip dt {
-  font-weight: bold;
   color: var(--color-accent);
+  font-weight: bold;
 }
 
 .tooltip dd {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
 }
 
 @keyframes marching-ants {
@@ -320,8 +347,8 @@ ul {
 .selection {
   fill-opacity: 0.1;
   stroke: black;
-  stroke-opacity: 0.7;
   stroke-dasharray: 5 3;
+  stroke-opacity: 0.7;
   animation: marching-ants 2s linear infinite;
 }
 
@@ -329,8 +356,16 @@ circle.selected {
   fill: #ff6b6b;
 }
 
+circle {
+  transition: 200ms;
+
+  @starting-style {
+    r: 0;
+  }
+}
+
 .slider-container {
-  display: flex;
+  display: none;
   align-items: baseline;
   gap: 1em;
 }
@@ -343,13 +378,7 @@ circle.selected {
   margin-left: auto;
 }
 
-circle {
-  transition: 200ms;
-
-  @starting-style {
-    r: 0;
-  }
-}
+/* Meta page file visualization */
 
 #files {
   display: grid;
@@ -359,11 +388,15 @@ circle {
 }
 
 #files > div {
-  grid-column: 1 / -1;
   display: grid;
+  grid-column: 1 / -1;
   grid-template-columns: subgrid;
   padding-block: 0.35em;
-  border-bottom: 1px solid color-mix(in oklch, canvastext 10%, canvas);
+  border-bottom: 1px solid color-mix(
+    in oklch,
+    canvastext 10%,
+    canvas
+  );
 }
 
 #files > div:first-child {
@@ -380,17 +413,17 @@ circle {
 
 #files dt small {
   display: block;
-  opacity: 0.7;
-  font-size: 0.8em;
   margin-top: 0.25em;
+  font-size: 0.8em;
+  opacity: 0.7;
 }
 
 #files dd {
-  grid-column: 2;
   display: flex;
+  grid-column: 2;
   flex-wrap: wrap;
-  align-items: start;
   align-content: start;
+  align-items: start;
   gap: 0.15em;
   padding-top: 0.25em;
   margin: 0;
@@ -411,25 +444,27 @@ circle {
     background-color 150ms ease;
 }
 
+/* First Meta scrollytelling section */
+
 #scrolly-1 {
   position: relative;
   display: flex;
-  gap: 2rem;
   align-items: flex-start;
+  gap: 2rem;
   margin-top: 1rem;
 }
 
 #scatter-story {
-  flex: 1;
   position: relative;
+  flex: 1;
 }
 
 #scatter-plot {
-  flex: 1;
   position: sticky;
   top: 1rem;
-  left: 0;
   bottom: auto;
+  left: 0;
+  flex: 1;
   max-height: calc(100vh - 2rem);
   overflow: visible;
 }
@@ -457,15 +492,15 @@ circle {
   stroke-width: 1.25;
 }
 
-.gridlines line {
-  stroke-opacity: 0.5;
-}
-
 .step {
-  margin-bottom: 28vh;
   padding: 1rem;
+  margin-bottom: 28vh;
+  background: color-mix(
+    in oklch,
+    var(--color-accent),
+    canvas 92%
+  );
   border-left: 0.25rem solid var(--color-accent);
-  background: color-mix(in oklch, var(--color-accent), canvas 92%);
   border-radius: 0.5rem;
 }
 
@@ -474,13 +509,15 @@ circle {
 }
 
 .step.active {
+  background: color-mix(
+    in oklch,
+    var(--color-accent),
+    canvas 85%
+  );
   outline: 2px solid var(--color-accent);
-  background: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-.slider-container {
-  display: none;
-}
+/* Second Meta scrollytelling section */
 
 #scrolly-2 {
   position: relative;
@@ -498,12 +535,12 @@ circle {
 #files-section {
   position: sticky;
   top: 2rem;
-  align-self: flex-start;
-  background: canvas;
-  padding: 0;
-  max-height: 85vh;
-  overflow: auto;
   z-index: 5;
+  align-self: flex-start;
+  max-height: 85vh;
+  padding: 0;
+  overflow: auto;
+  background: canvas;
   border: none;
 }
 
@@ -514,9 +551,9 @@ circle {
 
 #files-story {
   position: relative;
+  max-width: 100%;
   padding-top: 8vh;
   padding-bottom: 70vh;
-  max-width: 100%;
 }
 
 #scrolly-2 .step {
@@ -529,9 +566,11 @@ circle {
 
 #files-section::before,
 #scrolly-2::before {
-  content: none;
   display: none;
+  content: none;
 }
+
+/* Meta summary statistics */
 
 #stats .stats {
   display: grid;
@@ -544,18 +583,18 @@ circle {
   grid-row: 1;
   margin: 0;
   color: canvastext;
-  opacity: 0.65;
   font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
+  opacity: 0.65;
 }
 
 #stats .stats dd {
   grid-row: 2;
   margin: 0;
   font-size: 2rem;
-  line-height: 1;
   font-weight: 400;
+  line-height: 1;
 }
 
 body > h1 {
@@ -567,9 +606,11 @@ body > p {
 }
 
 body > h2 {
-  font-size: 1.1rem;
   margin-top: 1.5rem;
+  font-size: 1.1rem;
 }
+
+/* Meta language pie chart */
 
 #language-chart {
   display: flex;
@@ -585,11 +626,15 @@ body > h2 {
 }
 
 #language-legend {
-  list-style: none;
   padding: 1rem 1.25rem;
   margin: 0;
-  border: 1px solid color-mix(in oklch, canvastext 20%, canvas);
+  list-style: none;
   background: canvas;
+  border: 1px solid color-mix(
+    in oklch,
+    canvastext 20%,
+    canvas
+  );
 }
 
 #language-legend li {
@@ -603,9 +648,21 @@ body > h2 {
 #language-legend .swatch {
   width: 1rem;
   aspect-ratio: 1;
-  border-radius: 50%;
   background: var(--color);
+  border-radius: 50%;
 }
+
+/* CV page */
+
+.cv-page article {
+  break-inside: avoid;
+}
+
+.cv-page article p {
+  max-width: 85ch;
+}
+
+/* Short screens */
 
 @media (max-height: 800px) {
   #chart svg {
@@ -635,6 +692,8 @@ body > h2 {
   }
 }
 
+/* Tablet layout */
+
 @media (max-width: 900px) {
   #scrolly-1,
   #scrolly-2 {
@@ -652,5 +711,73 @@ body > h2 {
 
   #stats .stats {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile layout */
+
+@media (max-width: 700px) {
+  body {
+    max-width: calc(100vw - 2rem);
+    padding: 4rem 1rem 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    flex: 1 1 30%;
+  }
+
+  .color-scheme {
+    top: 0.75rem;
+    right: 1rem;
+  }
+
+  .github-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .github-stats dt,
+  .github-stats dd {
+    grid-row: auto;
+  }
+
+  .chart-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #projects-pie-plot {
+    width: min(100%, 20em);
+    margin-inline: auto;
+  }
+
+  #stats .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #files {
+    grid-template-columns: 1fr;
+  }
+
+  #files > div {
+    display: block;
+  }
+
+  #files dt,
+  #files dd {
+    display: block;
+  }
+
+  #files dd {
+    display: flex;
+    margin-top: 0.5rem;
   }
 }

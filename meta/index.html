@@ -2,18 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meta</title>
 
-  <link rel="stylesheet" href="../style.css">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <script type="module" src="../global.js"></script>
-  <script type="module" src="main.js"></script>
+  <title>Portfolio Code Evolution - Yutao Lin</title>
+
+  <link
+    rel="stylesheet"
+    href="../style.css"
+  >
+
+  <script
+    type="module"
+    src="../global.js"
+  ></script>
+
+  <script
+    type="module"
+    src="main.js"
+  ></script>
 </head>
 
-<body>
-  <h1>Meta</h1>
-  <p>This page includes stats about the code of my portfolio website.</p>
+<body class="meta-page">
+  <h1>Portfolio Code Evolution</h1>
+
+  <p>
+    This page visualizes how my portfolio repository has
+    grown across commits, files, programming languages,
+    and lines of code.
+  </p>
+
+  <p class="meta-repository-link">
+    <a
+      href="https://github.com/yutaoLin018/portfolio"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View the portfolio repository on GitHub
+    </a>
+  </p>
 
   <div class="slider-container">
     <label for="commit-progress">
@@ -40,11 +70,20 @@
 
     <div id="scatter-plot">
       <h2>Commits by time of day</h2>
+
       <div id="chart"></div>
-      <p id="selection-count">No commits selected</p>
+
+      <p id="selection-count">
+        No commits selected
+      </p>
 
       <div id="language-chart">
-        <svg id="language-pie" viewBox="-150 -150 300 300"></svg>
+        <svg
+          id="language-pie"
+          viewBox="-150 -150 300 300"
+          aria-label="Programming language breakdown"
+        ></svg>
+
         <ul id="language-legend"></ul>
       </div>
     </div>
@@ -59,10 +98,20 @@
     <div id="files-story"></div>
   </div>
 
-  <dl id="commit-tooltip" class="info tooltip" hidden>
+  <dl
+    id="commit-tooltip"
+    class="info tooltip"
+    hidden
+  >
     <dt>Commit</dt>
+
     <dd>
-      <a href="" id="commit-link" target="_blank"></a>
+      <a
+        href=""
+        id="commit-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      ></a>
     </dd>
 
     <dt>Date</dt>
