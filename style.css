@@ -1,160 +1,185 @@
 html {
   color-scheme: light dark;
-  --color-accent: oklch(65% 50% 0);
+  --color-accent: oklch(82% 18% 250);
   accent-color: var(--color-accent);
 }
 
 /* =========================================================
-   LIQUID GLASS VARIABLES
+   IOS LOCK SCREEN / LIQUID GLASS VARIABLES
    ========================================================= */
 
 :root {
-  --page-gutter: clamp(0.75rem, 3vw, 2rem);
-  --content-width: 1300px;
-  --nav-height: 4.2rem;
+  --content-width: 1180px;
+  --page-gutter: clamp(0.9rem, 3vw, 2.5rem);
+  --nav-height: 4.3rem;
 
-  --glass-radius-small: 0.9rem;
-  --glass-radius-medium: 1.35rem;
-  --glass-radius-large: 1.8rem;
+  --glass-blur: 44px;
+  --glass-saturation: 175%;
+  --glass-brightness: 110%;
 
-  --glass-blur: 34px;
-  --glass-saturation: 185%;
-  --glass-brightness: 112%;
+  --glass-radius-small: 1rem;
+  --glass-radius-medium: 1.6rem;
+  --glass-radius-large: 2rem;
 
-  --glass-border-light: rgb(255 255 255 / 0.68);
-  --glass-border-dark: rgb(255 255 255 / 0.2);
+  --glass-bg: rgb(145 165 185 / 0.22);
+  --glass-bg-strong: rgb(165 185 205 / 0.32);
+  --glass-bg-subtle: rgb(130 150 170 / 0.16);
 
-  --glass-bg: rgb(255 255 255 / 0.3);
-  --glass-bg-strong: rgb(255 255 255 / 0.46);
-  --glass-bg-subtle: rgb(255 255 255 / 0.18);
+  --glass-border-light: rgb(255 255 255 / 0.32);
+  --glass-border-dark: rgb(255 255 255 / 0.22);
+
+  --text-primary: rgb(245 248 255);
+  --text-secondary: rgb(205 214 228);
+  --hairline: rgb(255 255 255 / 0.14);
+
+  --page-bg:
+    radial-gradient(
+      circle at 30% 12%,
+      rgb(105 125 150 / 0.34),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 75% 38%,
+      rgb(55 75 105 / 0.38),
+      transparent 34rem
+    ),
+    radial-gradient(
+      circle at 45% 100%,
+      rgb(15 28 42 / 0.72),
+      transparent 38rem
+    ),
+    linear-gradient(
+      180deg,
+      #172131 0%,
+      #111927 42%,
+      #05080d 100%
+    );
 
   --glass-highlight:
     linear-gradient(
       145deg,
-      rgb(255 255 255 / 0.42),
-      rgb(255 255 255 / 0.08) 38%,
-      transparent 65%
+      rgb(255 255 255 / 0.28),
+      rgb(255 255 255 / 0.08) 34%,
+      transparent 68%
     );
 
   --glass-reflection:
     radial-gradient(
-      circle at 18% 5%,
-      rgb(255 255 255 / 0.46),
-      transparent 34%
+      circle at 18% 0%,
+      rgb(255 255 255 / 0.26),
+      transparent 35%
     );
 
   --glass-shadow:
-    0 1px 0 rgb(255 255 255 / 0.7) inset,
-    0 -1px 0 rgb(255 255 255 / 0.1) inset,
-    0 18px 45px rgb(15 23 42 / 0.1),
-    0 4px 12px rgb(15 23 42 / 0.06);
+    0 1px 0 rgb(255 255 255 / 0.32) inset,
+    0 -1px 0 rgb(255 255 255 / 0.08) inset,
+    0 18px 50px rgb(0 0 0 / 0.22),
+    0 4px 18px rgb(0 0 0 / 0.18);
 
   --glass-shadow-hover:
-    0 1px 0 rgb(255 255 255 / 0.82) inset,
-    0 -1px 0 rgb(255 255 255 / 0.14) inset,
-    0 28px 65px rgb(15 23 42 / 0.16),
-    0 8px 20px rgb(15 23 42 / 0.08);
+    0 1px 0 rgb(255 255 255 / 0.42) inset,
+    0 -1px 0 rgb(255 255 255 / 0.1) inset,
+    0 26px 70px rgb(0 0 0 / 0.32),
+    0 8px 24px rgb(0 0 0 / 0.22);
 
-  --page-bg:
-    radial-gradient(
-      circle at 8% -8%,
-      rgb(95 160 255 / 0.42),
-      transparent 34rem
-    ),
-    radial-gradient(
-      circle at 95% 5%,
-      rgb(255 105 190 / 0.3),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 52% 100%,
-      rgb(77 226 191 / 0.24),
-      transparent 38rem
-    ),
-    linear-gradient(
-      145deg,
-      #eef5ff 0%,
-      #f4efff 48%,
-      #edf9f6 100%
-    );
-
-  --text-primary: #172033;
-  --text-secondary: #596276;
-  --hairline: rgb(24 34 56 / 0.1);
-
-  --focus-ring: color-mix(
-    in oklch,
-    var(--color-accent) 72%,
-    white
-  );
+  --focus-ring: rgb(185 210 255 / 0.55);
 }
 
 /* =========================================================
-   DARK MODE VARIABLES
+   AUTO DARK MODE
    ========================================================= */
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --glass-bg: rgb(15 20 33 / 0.3);
-    --glass-bg-strong: rgb(18 24 39 / 0.48);
-    --glass-bg-subtle: rgb(12 17 29 / 0.2);
+    --glass-bg: rgb(145 165 185 / 0.22);
+    --glass-bg-strong: rgb(165 185 205 / 0.32);
+    --glass-bg-subtle: rgb(130 150 170 / 0.16);
 
-    --glass-border-light: rgb(255 255 255 / 0.18);
-    --glass-border-dark: rgb(255 255 255 / 0.2);
+    --glass-border-light: rgb(255 255 255 / 0.32);
+    --glass-border-dark: rgb(255 255 255 / 0.22);
 
-    --glass-highlight:
-      linear-gradient(
-        145deg,
-        rgb(255 255 255 / 0.16),
-        rgb(255 255 255 / 0.035) 40%,
-        transparent 68%
-      );
-
-    --glass-reflection:
-      radial-gradient(
-        circle at 18% 5%,
-        rgb(255 255 255 / 0.14),
-        transparent 36%
-      );
-
-    --glass-shadow:
-      0 1px 0 rgb(255 255 255 / 0.16) inset,
-      0 -1px 0 rgb(255 255 255 / 0.04) inset,
-      0 22px 56px rgb(0 0 0 / 0.38),
-      0 6px 18px rgb(0 0 0 / 0.24);
-
-    --glass-shadow-hover:
-      0 1px 0 rgb(255 255 255 / 0.22) inset,
-      0 -1px 0 rgb(255 255 255 / 0.06) inset,
-      0 30px 72px rgb(0 0 0 / 0.5),
-      0 10px 24px rgb(0 0 0 / 0.3);
+    --text-primary: rgb(245 248 255);
+    --text-secondary: rgb(205 214 228);
+    --hairline: rgb(255 255 255 / 0.14);
 
     --page-bg:
       radial-gradient(
-        circle at 6% -5%,
-        rgb(32 91 190 / 0.52),
-        transparent 36rem
+        circle at 30% 12%,
+        rgb(105 125 150 / 0.34),
+        transparent 28rem
       ),
       radial-gradient(
-        circle at 100% 3%,
-        rgb(160 42 119 / 0.36),
+        circle at 75% 38%,
+        rgb(55 75 105 / 0.38),
         transparent 34rem
       ),
       radial-gradient(
-        circle at 55% 100%,
-        rgb(18 130 104 / 0.28),
-        transparent 40rem
+        circle at 45% 100%,
+        rgb(15 28 42 / 0.72),
+        transparent 38rem
       ),
       linear-gradient(
-        145deg,
-        #050915 0%,
-        #101326 48%,
-        #071310 100%
+        180deg,
+        #172131 0%,
+        #111927 42%,
+        #05080d 100%
+      );
+  }
+}
+
+/* =========================================================
+   AUTO LIGHT MODE
+   ========================================================= */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --glass-bg: rgb(245 248 255 / 0.32);
+    --glass-bg-strong: rgb(255 255 255 / 0.54);
+    --glass-bg-subtle: rgb(235 242 255 / 0.24);
+
+    --glass-border-light: rgb(255 255 255 / 0.68);
+    --glass-border-dark: rgb(255 255 255 / 0.4);
+
+    --text-primary: rgb(18 28 45);
+    --text-secondary: rgb(72 86 108);
+    --hairline: rgb(20 32 55 / 0.12);
+
+    --page-bg:
+      radial-gradient(
+        circle at 20% 5%,
+        rgb(190 215 245 / 0.75),
+        transparent 30rem
+      ),
+      radial-gradient(
+        circle at 85% 35%,
+        rgb(210 225 250 / 0.65),
+        transparent 34rem
+      ),
+      radial-gradient(
+        circle at 50% 100%,
+        rgb(170 200 215 / 0.45),
+        transparent 38rem
+      ),
+      linear-gradient(
+        180deg,
+        #edf4ff 0%,
+        #dfeaf7 48%,
+        #cfddea 100%
       );
 
-    --text-primary: #f5f7ff;
-    --text-secondary: #b3bdd2;
-    --hairline: rgb(255 255 255 / 0.1);
+    --glass-shadow:
+      0 1px 0 rgb(255 255 255 / 0.72) inset,
+      0 -1px 0 rgb(255 255 255 / 0.22) inset,
+      0 18px 46px rgb(68 88 120 / 0.16),
+      0 4px 14px rgb(68 88 120 / 0.1);
+
+    --glass-shadow-hover:
+      0 1px 0 rgb(255 255 255 / 0.86) inset,
+      0 -1px 0 rgb(255 255 255 / 0.3) inset,
+      0 26px 64px rgb(68 88 120 / 0.22),
+      0 8px 24px rgb(68 88 120 / 0.14);
+
+    --focus-ring: rgb(80 130 220 / 0.45);
   }
 }
 
@@ -163,66 +188,53 @@ html {
    ========================================================= */
 
 html[style*="color-scheme: light"] {
-  --glass-bg: rgb(255 255 255 / 0.3);
-  --glass-bg-strong: rgb(255 255 255 / 0.46);
-  --glass-bg-subtle: rgb(255 255 255 / 0.18);
+  --glass-bg: rgb(245 248 255 / 0.32);
+  --glass-bg-strong: rgb(255 255 255 / 0.54);
+  --glass-bg-subtle: rgb(235 242 255 / 0.24);
 
   --glass-border-light: rgb(255 255 255 / 0.68);
-  --glass-border-dark: rgb(255 255 255 / 0.2);
+  --glass-border-dark: rgb(255 255 255 / 0.4);
 
-  --glass-highlight:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.42),
-      rgb(255 255 255 / 0.08) 38%,
-      transparent 65%
-    );
-
-  --glass-reflection:
-    radial-gradient(
-      circle at 18% 5%,
-      rgb(255 255 255 / 0.46),
-      transparent 34%
-    );
-
-  --glass-shadow:
-    0 1px 0 rgb(255 255 255 / 0.7) inset,
-    0 -1px 0 rgb(255 255 255 / 0.1) inset,
-    0 18px 45px rgb(15 23 42 / 0.1),
-    0 4px 12px rgb(15 23 42 / 0.06);
-
-  --glass-shadow-hover:
-    0 1px 0 rgb(255 255 255 / 0.82) inset,
-    0 -1px 0 rgb(255 255 255 / 0.14) inset,
-    0 28px 65px rgb(15 23 42 / 0.16),
-    0 8px 20px rgb(15 23 42 / 0.08);
+  --text-primary: rgb(18 28 45);
+  --text-secondary: rgb(72 86 108);
+  --hairline: rgb(20 32 55 / 0.12);
 
   --page-bg:
     radial-gradient(
-      circle at 8% -8%,
-      rgb(95 160 255 / 0.42),
+      circle at 20% 5%,
+      rgb(190 215 245 / 0.75),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 85% 35%,
+      rgb(210 225 250 / 0.65),
       transparent 34rem
     ),
     radial-gradient(
-      circle at 95% 5%,
-      rgb(255 105 190 / 0.3),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 52% 100%,
-      rgb(77 226 191 / 0.24),
+      circle at 50% 100%,
+      rgb(170 200 215 / 0.45),
       transparent 38rem
     ),
     linear-gradient(
-      145deg,
-      #eef5ff 0%,
-      #f4efff 48%,
-      #edf9f6 100%
+      180deg,
+      #edf4ff 0%,
+      #dfeaf7 48%,
+      #cfddea 100%
     );
 
-  --text-primary: #172033;
-  --text-secondary: #596276;
-  --hairline: rgb(24 34 56 / 0.1);
+  --glass-shadow:
+    0 1px 0 rgb(255 255 255 / 0.72) inset,
+    0 -1px 0 rgb(255 255 255 / 0.22) inset,
+    0 18px 46px rgb(68 88 120 / 0.16),
+    0 4px 14px rgb(68 88 120 / 0.1);
+
+  --glass-shadow-hover:
+    0 1px 0 rgb(255 255 255 / 0.86) inset,
+    0 -1px 0 rgb(255 255 255 / 0.3) inset,
+    0 26px 64px rgb(68 88 120 / 0.22),
+    0 8px 24px rgb(68 88 120 / 0.14);
+
+  --focus-ring: rgb(80 130 220 / 0.45);
 }
 
 /* =========================================================
@@ -230,66 +242,53 @@ html[style*="color-scheme: light"] {
    ========================================================= */
 
 html[style*="color-scheme: dark"] {
-  --glass-bg: rgb(15 20 33 / 0.3);
-  --glass-bg-strong: rgb(18 24 39 / 0.48);
-  --glass-bg-subtle: rgb(12 17 29 / 0.2);
+  --glass-bg: rgb(145 165 185 / 0.22);
+  --glass-bg-strong: rgb(165 185 205 / 0.32);
+  --glass-bg-subtle: rgb(130 150 170 / 0.16);
 
-  --glass-border-light: rgb(255 255 255 / 0.18);
-  --glass-border-dark: rgb(255 255 255 / 0.2);
+  --glass-border-light: rgb(255 255 255 / 0.32);
+  --glass-border-dark: rgb(255 255 255 / 0.22);
 
-  --glass-highlight:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.16),
-      rgb(255 255 255 / 0.035) 40%,
-      transparent 68%
-    );
-
-  --glass-reflection:
-    radial-gradient(
-      circle at 18% 5%,
-      rgb(255 255 255 / 0.14),
-      transparent 36%
-    );
-
-  --glass-shadow:
-    0 1px 0 rgb(255 255 255 / 0.16) inset,
-    0 -1px 0 rgb(255 255 255 / 0.04) inset,
-    0 22px 56px rgb(0 0 0 / 0.38),
-    0 6px 18px rgb(0 0 0 / 0.24);
-
-  --glass-shadow-hover:
-    0 1px 0 rgb(255 255 255 / 0.22) inset,
-    0 -1px 0 rgb(255 255 255 / 0.06) inset,
-    0 30px 72px rgb(0 0 0 / 0.5),
-    0 10px 24px rgb(0 0 0 / 0.3);
+  --text-primary: rgb(245 248 255);
+  --text-secondary: rgb(205 214 228);
+  --hairline: rgb(255 255 255 / 0.14);
 
   --page-bg:
     radial-gradient(
-      circle at 6% -5%,
-      rgb(32 91 190 / 0.52),
-      transparent 36rem
+      circle at 30% 12%,
+      rgb(105 125 150 / 0.34),
+      transparent 28rem
     ),
     radial-gradient(
-      circle at 100% 3%,
-      rgb(160 42 119 / 0.36),
+      circle at 75% 38%,
+      rgb(55 75 105 / 0.38),
       transparent 34rem
     ),
     radial-gradient(
-      circle at 55% 100%,
-      rgb(18 130 104 / 0.28),
-      transparent 40rem
+      circle at 45% 100%,
+      rgb(15 28 42 / 0.72),
+      transparent 38rem
     ),
     linear-gradient(
-      145deg,
-      #050915 0%,
-      #101326 48%,
-      #071310 100%
+      180deg,
+      #172131 0%,
+      #111927 42%,
+      #05080d 100%
     );
 
-  --text-primary: #f5f7ff;
-  --text-secondary: #b3bdd2;
-  --hairline: rgb(255 255 255 / 0.1);
+  --glass-shadow:
+    0 1px 0 rgb(255 255 255 / 0.32) inset,
+    0 -1px 0 rgb(255 255 255 / 0.08) inset,
+    0 18px 50px rgb(0 0 0 / 0.22),
+    0 4px 18px rgb(0 0 0 / 0.18);
+
+  --glass-shadow-hover:
+    0 1px 0 rgb(255 255 255 / 0.42) inset,
+    0 -1px 0 rgb(255 255 255 / 0.1) inset,
+    0 26px 70px rgb(0 0 0 / 0.32),
+    0 8px 24px rgb(0 0 0 / 0.22);
+
+  --focus-ring: rgb(185 210 255 / 0.55);
 }
 
 /* =========================================================
@@ -346,37 +345,30 @@ body::before {
   pointer-events: none;
   content: "";
 
-  background-image:
-    linear-gradient(
-      rgb(255 255 255 / 0.035) 1px,
-      transparent 1px
+  background:
+    radial-gradient(
+      ellipse at 20% 80%,
+      rgb(255 255 255 / 0.05),
+      transparent 28rem
     ),
-    linear-gradient(
-      90deg,
-      rgb(255 255 255 / 0.035) 1px,
-      transparent 1px
+    radial-gradient(
+      ellipse at 80% 15%,
+      rgb(150 170 210 / 0.08),
+      transparent 24rem
     );
 
-  background-size: 48px 48px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent 68%
-    );
+  background-size: auto;
+  mask-image: none;
 }
 
 input,
 textarea,
-button,
-select {
+button {
   font: inherit;
 }
 
 img {
   display: block;
-
   width: 100%;
   max-width: 350px;
   height: auto;
@@ -418,63 +410,71 @@ h6 {
 }
 
 body > h1 {
-  max-width: 14ch;
+  max-width: 13ch;
 
-  margin-top: 1.2rem;
-  margin-bottom: 0.8rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
-  font-size: clamp(3rem, 8vw, 6.8rem);
-  font-weight: 760;
-  line-height: 0.93;
-  letter-spacing: -0.065em;
+  color: var(--text-primary);
+
+  font-size: clamp(4rem, 11vw, 8rem);
+  font-weight: 520;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+
+  text-shadow:
+    0 1px 0 rgb(255 255 255 / 0.14),
+    0 18px 46px rgb(0 0 0 / 0.35);
+}
+
+html[style*="color-scheme: light"] body > h1 {
+  text-shadow: none;
 }
 
 body > h1::after {
   display: block;
 
-  width: 0.72em;
-  height: 0.12em;
+  width: 0.46em;
+  height: 0.075em;
 
   margin-top: 0.24em;
 
   content: "";
 
-  background:
-    linear-gradient(
-      90deg,
-      #66a8ff,
-      #a376ff,
-      #ff7bab
-    );
+  background: color-mix(
+    in srgb,
+    var(--text-primary) 70%,
+    transparent
+  );
 
   border-radius: 999px;
 
   box-shadow:
-    0 0 24px rgb(120 122 255 / 0.35);
+    0 0 28px rgb(255 255 255 / 0.28);
 }
 
 body > p {
-  max-width: 68ch;
+  max-width: 54ch;
 
   margin-bottom: 1rem;
 
   color: var(--text-secondary);
 
-  font-size: clamp(
-    1rem,
-    1.6vw,
-    1.12rem
-  );
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 440;
+
+  text-shadow:
+    0 8px 24px rgb(0 0 0 / 0.28);
+}
+
+html[style*="color-scheme: light"] body > p {
+  text-shadow: none;
 }
 
 body > h2 {
   margin-top: 1.5rem;
 
-  font-size: clamp(
-    1.2rem,
-    2vw,
-    1.6rem
-  );
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
 
   letter-spacing: -0.025em;
 }
@@ -489,11 +489,7 @@ section > header {
 section > header h2 {
   margin-bottom: 0.5rem;
 
-  font-size: clamp(
-    1.25rem,
-    2.2vw,
-    1.7rem
-  );
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
 
   letter-spacing: -0.025em;
 }
@@ -503,7 +499,7 @@ article h3 {
 }
 
 /* =========================================================
-   SHARED GLASS MATERIAL
+   SHARED LIQUID GLASS MATERIAL
    ========================================================= */
 
 nav,
@@ -522,7 +518,7 @@ form,
 input,
 textarea,
 button,
-select {
+.theme-orb {
   -webkit-backdrop-filter:
     blur(var(--glass-blur))
     saturate(var(--glass-saturation))
@@ -535,7 +531,7 @@ select {
 }
 
 /* =========================================================
-   RESPONSIVE LIQUID GLASS NAVIGATION
+   RESPONSIVE LOCK-SCREEN NAVIGATION
    ========================================================= */
 
 nav {
@@ -561,8 +557,11 @@ nav {
   overflow: hidden;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.18),
+      rgb(95 115 140 / 0.12)
+    ),
     var(--glass-bg);
 
   border:
@@ -571,9 +570,9 @@ nav {
   border-radius: 999px;
 
   box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.2) inset;
+    0 1px 0 rgb(255 255 255 / 0.25) inset,
+    0 -1px 0 rgb(255 255 255 / 0.08) inset,
+    0 16px 46px rgb(0 0 0 / 0.28);
 
   transform: translateX(-50%);
 
@@ -610,11 +609,11 @@ nav::after {
 
   background:
     linear-gradient(
-      110deg,
-      rgb(255 255 255 / 0.2),
-      transparent 28%,
-      transparent 70%,
-      rgb(255 255 255 / 0.08)
+      135deg,
+      rgb(255 255 255 / 0.24),
+      transparent 30%,
+      transparent 72%,
+      rgb(255 255 255 / 0.06)
     );
 }
 
@@ -671,7 +670,7 @@ nav::after {
   color: var(--text-primary);
 
   background:
-    rgb(255 255 255 / 0.14);
+    rgb(255 255 255 / 0.1);
 
   border-color:
     rgb(255 255 255 / 0.12);
@@ -685,81 +684,194 @@ nav::after {
   background:
     linear-gradient(
       180deg,
-      rgb(255 255 255 / 0.34),
-      rgb(255 255 255 / 0.1)
+      rgb(235 244 255 / 0.25),
+      rgb(170 190 215 / 0.12)
     );
 
   border-color:
-    rgb(255 255 255 / 0.4);
+    rgb(255 255 255 / 0.28);
 
   box-shadow:
-    0 1px 0
-      rgb(255 255 255 / 0.65)
-      inset,
-    0 8px 24px
-      rgb(15 23 42 / 0.09);
+    0 1px 0 rgb(255 255 255 / 0.36) inset,
+    0 8px 26px rgb(0 0 0 / 0.18);
 }
 
-/* Compact theme selector */
+/* =========================================================
+   IOS CIRCULAR THEME TOGGLE
+   ========================================================= */
 
-.color-scheme {
-  position: static;
+.theme-orb {
+  position: relative;
 
-  display: block;
+  display: grid;
   flex: 0 0 auto;
 
-  min-height: auto;
+  width: 3.45rem;
+  height: 3.45rem;
+
+  place-items: center;
 
   padding: 0;
   margin: 0;
 
-  background: transparent;
-
-  border: 0;
-
-  box-shadow: none;
-
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-}
-
-.color-scheme select {
-  width: auto;
-  min-width: 5.3rem;
-  height: 3.3rem;
-
-  padding:
-    0.55rem
-    1.9rem
-    0.55rem
-    0.8rem;
-
   color: var(--text-primary);
 
-  font-size: 0.84rem;
-  font-weight: 650;
-
   background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgb(255 255 255 / 0.36),
+      transparent 34%
+    ),
     linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.22),
-      transparent 48%
+      180deg,
+      rgb(230 240 255 / 0.22),
+      rgb(100 120 145 / 0.14)
     ),
     var(--glass-bg-strong);
 
   border:
-    1px solid var(--glass-border-light);
+    1px solid rgb(255 255 255 / 0.28);
 
-  border-radius: 999px;
+  border-radius: 50%;
 
   box-shadow:
-    0 1px 0
-      rgb(255 255 255 / 0.52)
-      inset,
-    0 4px 14px
-      rgb(15 23 42 / 0.06);
+    0 1px 0 rgb(255 255 255 / 0.36) inset,
+    0 -1px 0 rgb(255 255 255 / 0.08) inset,
+    0 10px 28px rgb(0 0 0 / 0.2);
 
   cursor: pointer;
+
+  -webkit-backdrop-filter:
+    blur(34px)
+    saturate(170%)
+    brightness(110%);
+
+  backdrop-filter:
+    blur(34px)
+    saturate(170%)
+    brightness(110%);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.theme-orb:hover {
+  border-color:
+    rgb(255 255 255 / 0.38);
+
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.42) inset,
+    0 -1px 0 rgb(255 255 255 / 0.1) inset,
+    0 14px 34px rgb(0 0 0 / 0.26);
+
+  transform: translateY(-1px) scale(1.03);
+}
+
+.theme-orb:active {
+  transform: scale(0.96);
+}
+
+.theme-orb-icon {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    sans-serif;
+
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1;
+
+  text-shadow:
+    0 4px 12px rgb(0 0 0 / 0.22);
+}
+
+.theme-orb-label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.35rem);
+
+  z-index: 2;
+
+  color: var(--text-primary);
+
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+
+  text-shadow:
+    0 4px 12px rgb(0 0 0 / 0.28);
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+}
+
+html[style*="color-scheme: light"] .theme-orb-label,
+html[style*="color-scheme: light"] .theme-orb-icon {
+  text-shadow: none;
+}
+
+/* Auto mode: show sun + moon together */
+.theme-orb[data-mode="auto"] .theme-orb-icon {
+  font-size: 0.92rem;
+  letter-spacing: -0.12em;
+  transform: translateX(-0.04em);
+}
+
+/* Light mode: sun */
+.theme-orb[data-mode="light"] .theme-orb-icon {
+  font-size: 1.22rem;
+}
+
+/* Dark mode: moon */
+.theme-orb[data-mode="dark"] .theme-orb-icon {
+  font-size: 1.25rem;
+}
+
+/* Auto mode reacts to system theme with subtle background difference */
+.theme-orb[data-mode="auto"][data-resolved-theme="light"] {
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgb(255 255 255 / 0.46),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(255 255 255 / 0.3),
+      rgb(190 210 235 / 0.18)
+    ),
+    var(--glass-bg-strong);
+}
+
+.theme-orb[data-mode="auto"][data-resolved-theme="dark"] {
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      rgb(255 255 255 / 0.3),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.18),
+      rgb(75 95 120 / 0.16)
+    ),
+    var(--glass-bg-strong);
 }
 
 /* =========================================================
@@ -768,28 +880,32 @@ nav::after {
 
 .searchBar,
 input,
-textarea,
-button,
-select {
+textarea {
   color: var(--text-primary);
 
   background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.22),
-      transparent 48%
-    ),
-    var(--glass-bg-strong);
+    rgb(115 135 158 / 0.24);
 
   border:
     1px solid var(--glass-border-light);
 
   box-shadow:
-    0 1px 0
-      rgb(255 255 255 / 0.45)
-      inset,
-    0 5px 16px
-      rgb(15 23 42 / 0.06);
+    0 1px 0 rgb(255 255 255 / 0.18) inset,
+    0 8px 22px rgb(0 0 0 / 0.16);
+}
+
+button {
+  color: var(--text-primary);
+
+  background:
+    rgb(255 255 255 / 0.13);
+
+  border:
+    1px solid rgb(255 255 255 / 0.18);
+
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.2) inset,
+    0 8px 22px rgb(0 0 0 / 0.18);
 }
 
 .searchBar,
@@ -810,6 +926,16 @@ textarea {
     background-color 180ms ease;
 }
 
+.searchBar::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(
+    in srgb,
+    var(--text-secondary) 60%,
+    transparent
+  );
+}
+
 textarea {
   min-height: 8em;
 }
@@ -817,16 +943,10 @@ textarea {
 .searchBar:focus,
 input:focus,
 textarea:focus,
-select:focus,
 button:focus-visible,
 a:focus-visible {
   outline:
-    3px solid
-    color-mix(
-      in oklch,
-      var(--focus-ring),
-      transparent 55%
-    );
+    3px solid var(--focus-ring);
 
   outline-offset: 3px;
 }
@@ -843,6 +963,11 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background:
+    rgb(255 255 255 / 0.2);
+}
+
 form {
   display: grid;
 
@@ -855,8 +980,16 @@ form {
     clamp(1rem, 3vw, 2rem);
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
 
   border:
@@ -865,10 +998,7 @@ form {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 }
 
 form label {
@@ -915,35 +1045,28 @@ button {
   overflow: hidden;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
-
-  background-size:
-    130% 130%,
-    100% 100%,
-    100% 100%;
-
-  background-position:
-    0% 0%,
-    center,
-    center;
 
   border:
     1px solid var(--glass-border-light);
 
-  border-radius:
-    var(--glass-radius-large);
+  border-radius: 2rem;
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.16) inset;
+  box-shadow: var(--glass-shadow);
 
   transition:
     background-position 500ms ease,
-    transform 260ms
-      cubic-bezier(.2, .8, .2, 1),
+    transform 260ms cubic-bezier(.2, .8, .2, 1),
     box-shadow 260ms ease,
     border-color 260ms ease;
 
@@ -990,10 +1113,10 @@ button {
   background:
     linear-gradient(
       135deg,
-      rgb(255 255 255 / 0.22),
-      transparent 30%,
-      transparent 72%,
-      rgb(255 255 255 / 0.08)
+      rgb(255 255 255 / 0.2),
+      transparent 32%,
+      transparent 70%,
+      rgb(255 255 255 / 0.06)
     );
 
   opacity: 0.8;
@@ -1002,16 +1125,14 @@ button {
 .projects article:hover {
   z-index: 2;
 
-  background-position:
-    18% 10%,
-    center,
-    center;
-
   border-color:
-    rgb(255 255 255 / 0.76);
+    color-mix(
+      in srgb,
+      var(--glass-border-light) 80%,
+      white
+    );
 
-  box-shadow:
-    var(--glass-shadow-hover);
+  box-shadow: var(--glass-shadow-hover);
 
   transform:
     translateY(-7px)
@@ -1039,20 +1160,13 @@ button {
     );
 
   border:
-    1px solid rgb(255 255 255 / 0.3);
+    1px solid rgb(255 255 255 / 0.2);
 
-  border-radius:
-    calc(
-      var(--glass-radius-large)
-      - 0.5rem
-    );
+  border-radius: 1.45rem;
 
   box-shadow:
-    0 1px 0
-      rgb(255 255 255 / 0.45)
-      inset,
-    0 10px 28px
-      rgb(15 23 42 / 0.12);
+    0 1px 0 rgb(255 255 255 / 0.18) inset,
+    0 12px 30px rgb(0 0 0 / 0.24);
 
   transition:
     transform 420ms
@@ -1070,7 +1184,8 @@ button {
   margin-inline: 0.45rem;
 }
 
-.projects article h2 {
+.projects article h2,
+.projects article h3 {
   min-height: auto;
 
   margin-top: 0.3rem;
@@ -1079,8 +1194,17 @@ button {
   color: var(--text-primary);
 
   font-size: 1.22rem;
+  font-weight: 650;
 
   letter-spacing: -0.025em;
+
+  text-shadow:
+    0 8px 22px rgb(0 0 0 / 0.28);
+}
+
+html[style*="color-scheme: light"] .projects article h2,
+html[style*="color-scheme: light"] .projects article h3 {
+  text-shadow: none;
 }
 
 .projects article p {
@@ -1108,22 +1232,16 @@ button {
   text-decoration: none;
 
   background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.2),
-      transparent
-    ),
-    var(--glass-bg-subtle);
+    rgb(255 255 255 / 0.13);
 
   border:
-    1px solid rgb(255 255 255 / 0.28);
+    1px solid rgb(255 255 255 / 0.18);
 
   border-radius: 999px;
 
   box-shadow:
-    0 1px 0
-      rgb(255 255 255 / 0.42)
-      inset;
+    0 1px 0 rgb(255 255 255 / 0.2) inset,
+    0 8px 22px rgb(0 0 0 / 0.18);
 
   transition:
     background-color 180ms ease,
@@ -1134,7 +1252,7 @@ button {
   text-decoration: none;
 
   background:
-    rgb(255 255 255 / 0.26);
+    rgb(255 255 255 / 0.2);
 
   transform: translateY(-1px);
 }
@@ -1164,19 +1282,17 @@ button {
   padding: 1rem 1.1rem;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
-
-  background-size:
-    130% 130%,
-    100% 100%,
-    100% 100%;
-
-  background-position:
-    0% 0%,
-    center,
-    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -1184,27 +1300,17 @@ button {
   border-radius:
     var(--glass-radius-medium);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 
   transition:
-    background-position 500ms ease,
     transform 220ms ease,
     box-shadow 220ms ease;
 }
 
 .github-stats > div:hover {
-  background-position:
-    18% 10%,
-    center,
-    center;
-
   transform: translateY(-3px);
 
-  box-shadow:
-    var(--glass-shadow-hover);
+  box-shadow: var(--glass-shadow-hover);
 }
 
 .github-stats dt {
@@ -1226,9 +1332,16 @@ button {
   color: var(--text-primary);
 
   font-size: 2rem;
-  font-weight: 650;
+  font-weight: 560;
 
   letter-spacing: -0.045em;
+
+  text-shadow:
+    0 8px 24px rgb(0 0 0 / 0.3);
+}
+
+html[style*="color-scheme: light"] .github-stats dd {
+  text-shadow: none;
 }
 
 .github-updated,
@@ -1262,8 +1375,16 @@ button {
   margin-block: 2em;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
 
   border:
@@ -1272,10 +1393,7 @@ button {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 }
 
 #projects-pie-plot {
@@ -1304,8 +1422,16 @@ button {
   list-style: none;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
 
   border:
@@ -1314,10 +1440,7 @@ button {
   border-radius:
     var(--glass-radius-medium);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.12) inset;
+  box-shadow: var(--glass-shadow);
 }
 
 .legend-item {
@@ -1450,9 +1573,16 @@ path:not(:hover) {
   color: var(--text-primary);
 
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 560;
 
   line-height: 1;
+
+  text-shadow:
+    0 8px 24px rgb(0 0 0 / 0.3);
+}
+
+html[style*="color-scheme: light"] #stats .stats dd {
+  text-shadow: none;
 }
 
 /* =========================================================
@@ -1509,8 +1639,16 @@ path:not(:hover) {
   overflow: visible;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
 
   border:
@@ -1519,10 +1657,7 @@ path:not(:hover) {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 }
 
 #scatter-plot h2 {
@@ -1556,19 +1691,17 @@ path:not(:hover) {
   padding: 1rem;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
-
-  background-size:
-    130% 130%,
-    100% 100%,
-    100% 100%;
-
-  background-position:
-    0% 0%,
-    center,
-    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -1576,17 +1709,13 @@ path:not(:hover) {
   border-radius:
     var(--glass-radius-medium);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 
-  opacity: 0.72;
+  opacity: 0.62;
 
   transform: scale(0.985);
 
   transition:
-    background-position 500ms ease,
     opacity 220ms ease,
     transform 220ms ease,
     border-color 220ms ease,
@@ -1600,17 +1729,20 @@ path:not(:hover) {
 .step.active {
   opacity: 1;
 
-  background-position:
-    18% 10%,
-    center,
-    center;
-
   border-color:
     color-mix(
-      in oklch,
-      var(--color-accent) 38%,
+      in srgb,
+      var(--glass-border-light) 90%,
       white
     );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgb(225 238 255 / 0.26),
+      rgb(110 132 160 / 0.16)
+    ),
+    var(--glass-bg-strong);
 
   box-shadow:
     var(--glass-shadow-hover);
@@ -1634,9 +1766,9 @@ path:not(:hover) {
 
   background:
     linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.22),
-      transparent 48%
+      180deg,
+      rgb(225 238 255 / 0.28),
+      rgb(110 132 160 / 0.18)
     ),
     var(--glass-bg-strong);
 
@@ -1647,7 +1779,8 @@ path:not(:hover) {
     var(--glass-radius-small);
 
   box-shadow:
-    var(--glass-shadow-hover);
+    0 1px 0 rgb(255 255 255 / 0.28) inset,
+    0 22px 56px rgb(0 0 0 / 0.34);
 }
 
 .tooltip dt {
@@ -1761,8 +1894,16 @@ circle {
   overflow: auto;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
 
   border:
@@ -1771,10 +1912,7 @@ circle {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 }
 
 #files-section h2 {
@@ -1921,8 +2059,16 @@ circle {
   list-style: none;
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
 
   border:
@@ -1931,10 +2077,7 @@ circle {
   border-radius:
     var(--glass-radius-medium);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.12) inset;
+  box-shadow: var(--glass-shadow);
 }
 
 #language-legend li {
@@ -1972,19 +2115,17 @@ circle {
     );
 
   background:
-    var(--glass-reflection),
-    var(--glass-highlight),
+    linear-gradient(
+      180deg,
+      rgb(210 225 245 / 0.22),
+      rgb(95 115 140 / 0.13)
+    ),
+    radial-gradient(
+      circle at 16% 0%,
+      rgb(255 255 255 / 0.22),
+      transparent 34%
+    ),
     var(--glass-bg);
-
-  background-size:
-    130% 130%,
-    100% 100%,
-    100% 100%;
-
-  background-position:
-    0% 0%,
-    center,
-    center;
 
   border:
     1px solid var(--glass-border-light);
@@ -1992,23 +2133,14 @@ circle {
   border-radius:
     var(--glass-radius-large);
 
-  box-shadow:
-    var(--glass-shadow),
-    0 0 0 0.5px
-      rgb(255 255 255 / 0.14) inset;
+  box-shadow: var(--glass-shadow);
 
   transition:
-    background-position 500ms ease,
     transform 220ms ease,
     box-shadow 220ms ease;
 }
 
 .cv-page section:hover {
-  background-position:
-    18% 10%,
-    center,
-    center;
-
   transform: translateY(-2px);
 
   box-shadow:
@@ -2042,107 +2174,55 @@ circle {
 }
 
 /* =========================================================
-   DARK MODE COMPONENT FIXES
+   LIGHT MODE COLOR FIXES
    ========================================================= */
 
-@media (prefers-color-scheme: dark) {
-  nav,
-  .projects article,
-  .github-stats > div,
-  .chart-container,
-  .legend,
-  .searchBar,
-  .step,
-  #files-section,
-  #scatter-plot,
-  #language-legend,
-  .tooltip,
-  .cv-page section,
-  form,
-  input,
-  textarea,
-  button,
-  select {
-    border-color:
-      var(--glass-border-dark);
-  }
-
-  .nav-links a.current {
-    background:
-      linear-gradient(
-        180deg,
-        rgb(255 255 255 / 0.14),
-        rgb(255 255 255 / 0.04)
-      );
-
-    border-color:
-      rgb(255 255 255 / 0.18);
-  }
-
-  .color-scheme select {
-    background:
-      linear-gradient(
-        145deg,
-        rgb(255 255 255 / 0.1),
-        transparent 48%
-      ),
-      var(--glass-bg-strong);
-
-    border-color:
-      rgb(255 255 255 / 0.16);
-  }
+html[style*="color-scheme: light"] body > h1,
+html[style*="color-scheme: light"] .projects article h2,
+html[style*="color-scheme: light"] .projects article h3,
+html[style*="color-scheme: light"] .cv-page h2,
+html[style*="color-scheme: light"] .cv-page h3,
+html[style*="color-scheme: light"] .cv-page strong,
+html[style*="color-scheme: light"] .github-stats dd,
+html[style*="color-scheme: light"] #stats .stats dd {
+  color: var(--text-primary);
+  text-shadow: none;
 }
 
-/* =========================================================
-   MANUAL DARK MODE COMPONENT FIXES
-   ========================================================= */
-
-html[style*="color-scheme: dark"] nav,
-html[style*="color-scheme: dark"] .projects article,
-html[style*="color-scheme: dark"] .github-stats > div,
-html[style*="color-scheme: dark"] .chart-container,
-html[style*="color-scheme: dark"] .legend,
-html[style*="color-scheme: dark"] .searchBar,
-html[style*="color-scheme: dark"] .step,
-html[style*="color-scheme: dark"] #files-section,
-html[style*="color-scheme: dark"] #scatter-plot,
-html[style*="color-scheme: dark"] #language-legend,
-html[style*="color-scheme: dark"] .tooltip,
-html[style*="color-scheme: dark"] .cv-page section,
-html[style*="color-scheme: dark"] form,
-html[style*="color-scheme: dark"] input,
-html[style*="color-scheme: dark"] textarea,
-html[style*="color-scheme: dark"] button,
-html[style*="color-scheme: dark"] select {
-  border-color:
-    var(--glass-border-dark);
+html[style*="color-scheme: light"] body > p,
+html[style*="color-scheme: light"] .projects article p,
+html[style*="color-scheme: light"] .cv-page p,
+html[style*="color-scheme: light"] .cv-page li,
+html[style*="color-scheme: light"] .github-stats dt,
+html[style*="color-scheme: light"] #stats .stats dt {
+  color: var(--text-secondary);
+  text-shadow: none;
 }
 
-html[style*="color-scheme: dark"]
-.nav-links a.current {
-  background:
-    linear-gradient(
-      180deg,
-      rgb(255 255 255 / 0.14),
-      rgb(255 255 255 / 0.04)
-    );
-
-  border-color:
-    rgb(255 255 255 / 0.18);
+html[style*="color-scheme: light"] .nav-links a {
+  color: rgb(70 84 106 / 0.78);
 }
 
-html[style*="color-scheme: dark"]
-.color-scheme select {
-  background:
-    linear-gradient(
-      145deg,
-      rgb(255 255 255 / 0.1),
-      transparent 48%
-    ),
-    var(--glass-bg-strong);
+html[style*="color-scheme: light"] .nav-links a:hover,
+html[style*="color-scheme: light"] .nav-links a.current {
+  color: rgb(18 28 45);
+}
 
-  border-color:
-    rgb(255 255 255 / 0.16);
+html[style*="color-scheme: light"] .project-link,
+html[style*="color-scheme: light"] button {
+  color: rgb(18 28 45);
+}
+
+html[style*="color-scheme: light"] input,
+html[style*="color-scheme: light"] textarea,
+html[style*="color-scheme: light"] .searchBar {
+  color: rgb(18 28 45);
+}
+
+html[style*="color-scheme: light"] input::placeholder,
+html[style*="color-scheme: light"] textarea::placeholder,
+html[style*="color-scheme: light"] .searchBar::placeholder {
+  color: rgb(72 86 108 / 0.55);
 }
 
 /* =========================================================
@@ -2208,9 +2288,13 @@ html[style*="color-scheme: dark"]
     padding-inline: 0.75rem;
   }
 
-  .color-scheme select {
-    min-width: 4.9rem;
+  .theme-orb {
+    width: 3rem;
     height: 3rem;
+  }
+
+  .theme-orb-label {
+    display: none;
   }
 }
 
@@ -2267,9 +2351,9 @@ html[style*="color-scheme: dark"]
   body > h1 {
     font-size:
       clamp(
-        2.7rem,
-        15vw,
-        4.5rem
+        3.4rem,
+        17vw,
+        5rem
       );
   }
 
@@ -2278,7 +2362,15 @@ html[style*="color-scheme: dark"]
 
     padding: 0.3rem;
 
-    border-radius: 1.25rem;
+    border-radius: 1.6rem;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgb(210 225 245 / 0.18),
+        rgb(95 115 140 / 0.13)
+      ),
+      var(--glass-bg);
   }
 
   .nav-links a {
@@ -2292,22 +2384,31 @@ html[style*="color-scheme: dark"]
     font-size: 0.83rem;
   }
 
-  .color-scheme select {
-    width: 4.5rem;
-    min-width: 4.5rem;
-    height: 2.9rem;
+  .theme-orb {
+    width: 3rem;
+    height: 3rem;
+  }
 
-    padding:
-      0.45rem
-      1.45rem
-      0.45rem
-      0.65rem;
+  .theme-orb-icon {
+    font-size: 1.05rem;
+  }
 
+  .theme-orb[data-mode="auto"] .theme-orb-icon {
     font-size: 0.78rem;
+  }
+
+  .theme-orb-label {
+    display: none;
   }
 
   .projects {
     grid-template-columns: 1fr;
+  }
+
+  .projects article,
+  .cv-page section,
+  form {
+    border-radius: 1.75rem;
   }
 
   .github-stats {
@@ -2363,12 +2464,6 @@ html[style*="color-scheme: dark"]
 
     margin-top: 0.5rem;
   }
-
-  .cv-page section,
-  form {
-    border-radius:
-      var(--glass-radius-medium);
-  }
 }
 
 /* =========================================================
@@ -2382,17 +2477,17 @@ html[style*="color-scheme: dark"]
     font-size: 0.78rem;
   }
 
-  .color-scheme select {
-    width: 4.2rem;
-    min-width: 4.2rem;
-
-    padding-left: 0.55rem;
-
-    font-size: 0.74rem;
+  .theme-orb {
+    width: 2.75rem;
+    height: 2.75rem;
   }
 
-  .github-stats {
-    grid-template-columns: 1fr;
+  .theme-orb-icon {
+    font-size: 0.95rem;
+  }
+
+  .theme-orb[data-mode="auto"] .theme-orb-icon {
+    font-size: 0.7rem;
   }
 }
 
@@ -2427,7 +2522,8 @@ html[style*="color-scheme: dark"]
   .cv-page section:hover,
   .legend-item:hover,
   .project-link:hover,
-  .nav-links a:hover {
+  .nav-links a:hover,
+  .theme-orb:hover {
     transform: none;
   }
 }
@@ -2460,6 +2556,7 @@ html[style*="color-scheme: dark"]
     backdrop-filter: none;
 
     background: canvas;
+    color: canvastext;
   }
 }
 
@@ -2474,24 +2571,12 @@ html[style*="color-scheme: dark"]
 ) {
   :root {
     --glass-bg:
-      color-mix(
-        in srgb,
-        canvas 92%,
-        transparent
-      );
+      rgb(45 58 78 / 0.88);
 
     --glass-bg-strong:
-      color-mix(
-        in srgb,
-        canvas 96%,
-        transparent
-      );
+      rgb(55 70 92 / 0.92);
 
     --glass-bg-subtle:
-      color-mix(
-        in srgb,
-        canvas 88%,
-        transparent
-      );
+      rgb(45 58 78 / 0.82);
   }
 }
