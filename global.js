@@ -99,7 +99,7 @@ const themeOptions = [
     label: "Auto",
     value: "light dark",
     mode: "auto",
-    icon: "◐",
+    icon: "☀︎🌙︎",
   },
   {
     label: "Light",
@@ -146,8 +146,8 @@ function setColorScheme(colorScheme) {
 
   /*
     Auto mode:
-    "light dark" allows the browser and CSS media queries to follow
-    the user's system appearance setting.
+    "light dark" lets the browser use the user's system theme.
+    The CSS should use data-resolved-theme for actual styling.
   */
   document.documentElement.style.colorScheme = theme.value;
 
@@ -195,8 +195,8 @@ appearanceControl.addEventListener("click", () => {
 });
 
 /*
-  When Auto is selected, update the resolved theme immediately if
-  the user's system theme changes.
+  When Auto is selected, update the resolved theme immediately
+  if the user's system theme changes.
 */
 systemThemeQuery.addEventListener("change", () => {
   if (getStoredColorScheme() === "light dark") {

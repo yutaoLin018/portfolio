@@ -187,7 +187,7 @@ html {
    MANUAL LIGHT MODE
    ========================================================= */
 
-html[style*="color-scheme: light"] {
+html[data-resolved-theme="light"] {
   --glass-bg: rgb(245 248 255 / 0.32);
   --glass-bg-strong: rgb(255 255 255 / 0.54);
   --glass-bg-subtle: rgb(235 242 255 / 0.24);
@@ -241,7 +241,7 @@ html[style*="color-scheme: light"] {
    MANUAL DARK MODE
    ========================================================= */
 
-html[style*="color-scheme: dark"] {
+html[data-resolved-theme="dark"] {
   --glass-bg: rgb(145 165 185 / 0.22);
   --glass-bg-strong: rgb(165 185 205 / 0.32);
   --glass-bg-subtle: rgb(130 150 170 / 0.16);
@@ -427,7 +427,7 @@ body > h1 {
     0 18px 46px rgb(0 0 0 / 0.35);
 }
 
-html[style*="color-scheme: light"] body > h1 {
+html[data-resolved-theme="light"] body > h1 {
   text-shadow: none;
 }
 
@@ -467,7 +467,7 @@ body > p {
     0 8px 24px rgb(0 0 0 / 0.28);
 }
 
-html[style*="color-scheme: light"] body > p {
+html[data-resolved-theme="light"] body > p {
   text-shadow: none;
 }
 
@@ -821,8 +821,8 @@ nav::after {
   white-space: nowrap;
 }
 
-html[style*="color-scheme: light"] .theme-orb-label,
-html[style*="color-scheme: light"] .theme-orb-icon {
+html[data-resolved-theme="light"] .theme-orb-label,
+html[data-resolved-theme="light"] .theme-orb-icon {
   text-shadow: none;
 }
 
@@ -1202,8 +1202,8 @@ button {
     0 8px 22px rgb(0 0 0 / 0.28);
 }
 
-html[style*="color-scheme: light"] .projects article h2,
-html[style*="color-scheme: light"] .projects article h3 {
+html[data-resolved-theme="light"] .projects article h2,
+html[data-resolved-theme="light"] .projects article h3 {
   text-shadow: none;
 }
 
@@ -1340,7 +1340,7 @@ html[style*="color-scheme: light"] .projects article h3 {
     0 8px 24px rgb(0 0 0 / 0.3);
 }
 
-html[style*="color-scheme: light"] .github-stats dd {
+html[data-resolved-theme="light"] .github-stats dd {
   text-shadow: none;
 }
 
@@ -1581,7 +1581,7 @@ path:not(:hover) {
     0 8px 24px rgb(0 0 0 / 0.3);
 }
 
-html[style*="color-scheme: light"] #stats .stats dd {
+html[data-resolved-theme="light"] #stats .stats dd {
   text-shadow: none;
 }
 
@@ -2177,51 +2177,51 @@ circle {
    LIGHT MODE COLOR FIXES
    ========================================================= */
 
-html[style*="color-scheme: light"] body > h1,
-html[style*="color-scheme: light"] .projects article h2,
-html[style*="color-scheme: light"] .projects article h3,
-html[style*="color-scheme: light"] .cv-page h2,
-html[style*="color-scheme: light"] .cv-page h3,
-html[style*="color-scheme: light"] .cv-page strong,
-html[style*="color-scheme: light"] .github-stats dd,
-html[style*="color-scheme: light"] #stats .stats dd {
+html[data-resolved-theme="light"] body > h1,
+html[data-resolved-theme="light"] .projects article h2,
+html[data-resolved-theme="light"] .projects article h3,
+html[data-resolved-theme="light"] .cv-page h2,
+html[data-resolved-theme="light"] .cv-page h3,
+html[data-resolved-theme="light"] .cv-page strong,
+html[data-resolved-theme="light"] .github-stats dd,
+html[data-resolved-theme="light"] #stats .stats dd {
   color: var(--text-primary);
   text-shadow: none;
 }
 
-html[style*="color-scheme: light"] body > p,
-html[style*="color-scheme: light"] .projects article p,
-html[style*="color-scheme: light"] .cv-page p,
-html[style*="color-scheme: light"] .cv-page li,
-html[style*="color-scheme: light"] .github-stats dt,
-html[style*="color-scheme: light"] #stats .stats dt {
+html[data-resolved-theme="light"] body > p,
+html[data-resolved-theme="light"] .projects article p,
+html[data-resolved-theme="light"] .cv-page p,
+html[data-resolved-theme="light"] .cv-page li,
+html[data-resolved-theme="light"] .github-stats dt,
+html[data-resolved-theme="light"] #stats .stats dt {
   color: var(--text-secondary);
   text-shadow: none;
 }
 
-html[style*="color-scheme: light"] .nav-links a {
+html[data-resolved-theme="light"] .nav-links a {
   color: rgb(70 84 106 / 0.78);
 }
 
-html[style*="color-scheme: light"] .nav-links a:hover,
-html[style*="color-scheme: light"] .nav-links a.current {
+html[data-resolved-theme="light"] .nav-links a:hover,
+html[data-resolved-theme="light"] .nav-links a.current {
   color: rgb(18 28 45);
 }
 
-html[style*="color-scheme: light"] .project-link,
-html[style*="color-scheme: light"] button {
+html[data-resolved-theme="light"] .project-link,
+html[data-resolved-theme="light"] button {
   color: rgb(18 28 45);
 }
 
-html[style*="color-scheme: light"] input,
-html[style*="color-scheme: light"] textarea,
-html[style*="color-scheme: light"] .searchBar {
+html[data-resolved-theme="light"] input,
+html[data-resolved-theme="light"] textarea,
+html[data-resolved-theme="light"] .searchBar {
   color: rgb(18 28 45);
 }
 
-html[style*="color-scheme: light"] input::placeholder,
-html[style*="color-scheme: light"] textarea::placeholder,
-html[style*="color-scheme: light"] .searchBar::placeholder {
+html[data-resolved-theme="light"] input::placeholder,
+html[data-resolved-theme="light"] textarea::placeholder,
+html[data-resolved-theme="light"] .searchBar::placeholder {
   color: rgb(72 86 108 / 0.55);
 }
 
