@@ -144,11 +144,6 @@ function setColorScheme(colorScheme) {
     themeOptions.find((option) => option.value === colorScheme) ??
     themeOptions[0];
 
-  /*
-    Auto mode:
-    "light dark" lets the browser use the user's system theme.
-    The CSS should use data-resolved-theme for actual styling.
-  */
   document.documentElement.style.colorScheme = theme.value;
 
   document.documentElement.dataset.themeMode = theme.mode;
@@ -194,10 +189,6 @@ appearanceControl.addEventListener("click", () => {
   localStorage.colorScheme = nextTheme.value;
 });
 
-/*
-  When Auto is selected, update the resolved theme immediately
-  if the user's system theme changes.
-*/
 systemThemeQuery.addEventListener("change", () => {
   if (getStoredColorScheme() === "light dark") {
     setColorScheme("light dark");
