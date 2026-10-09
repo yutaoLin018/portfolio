@@ -6,12 +6,14 @@
   <title>Projects</title>
   <link rel="stylesheet" href="../style.css">
   <script type="module" src="../global.js"></script>
-  <script type="module" src="./projects.js"></script>
+  <script type="module" src="./projects.js?v=year-colors"></script>
+  <link rel="stylesheet" href="../showroom.css?v=nav-consistent">
+  <link rel="stylesheet" href="./archive.css?v=year-colors">
 </head>
-<body>
-  <h1>Projects</h1>
+<body class="projects-page">
+  <header class="projects-intro"><p class="eyebrow">YUTAO LIN / PROJECT ARCHIVE</p><h1>Ideas into view.</h1><p>A collection of data, visual stories, and interactive experiments.</p></header>
 
-  <div class="chart-container">
+  <div class="archive-tools"><div class="chart-container" aria-label="Filter projects by year">
     <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
     <ul class="legend"></ul>
   </div>
@@ -23,6 +25,6 @@
     placeholder="Search projects…"
   >
 
-  <div class="projects"></div>
+  </div><p class="archive-count" aria-live="polite"></p><div class="projects"></div><footer class="site-footer"><span>YUTAO LIN / PROJECT ARCHIVE</span><a href="../contact/">Let’s connect ↗</a></footer>
 </body>
 </html>

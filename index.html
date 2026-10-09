@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yutao Lin: Personal site and portfolio</title>
+  <meta name="description" content="Yutao Lin's portfolio of data science, visualization, and interactive web projects.">
+  <title>Yutao Lin — Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="showroom.css?v=nav-consistent">
   <script type="module" src="global.js"></script>
   <script type="module" src="index.js"></script>
 </head>
-<body>
-  <h1>Yutao Lin</h1>
-  <p>Welcome to my personal site and portfolio!</p>
+<body class="home-page">
+  <main>
+    <div class="gallery-heading"><span class="eyebrow">YUTAO LIN / SELECTED WORK</span><span class="eyebrow">DATA · VISUALIZATION · WEB</span></div>
+    <section class="showroom" aria-label="Featured project gallery">
+      <div class="showroom-art">
+        <div class="side-panel panel-left" aria-hidden="true"><span>EXPLORE / DISCOVER</span></div>
+        <a class="floating-project" id="featured-cover" href="projects/" aria-label="Browse projects"><span class="panel-caption" id="featured-caption">SELECTED PROJECT</span><img id="featured-image" alt="" src="images/DSC106-FinalProject.png"><span class="panel-name">YUTAO LIN / PORTFOLIO</span></a>
+        <div class="side-panel panel-right" aria-hidden="true"><span>IDEAS / INTO VIEW</span></div>
 
-  <img src="images/skyline.jpg" alt="A beautiful skyline at sunset.">
-
-  <h2>My GitHub Stats</h2>
-  <div id="profile-stats"></div>
-
-  <h2>Latest Projects</h2>
-  <div class="projects"></div>
+      </div>
+      <div class="showroom-copy" aria-live="polite"><p class="eyebrow" id="featured-year">SELECTED PROJECT / 2026</p><h1 id="featured-title">The Greening Earth</h1><p id="featured-description">Mapping global vegetation change through an interactive 3D experience.</p><a class="showroom-link" id="featured-link" href="projects/">Explore project <span aria-hidden="true">↗</span></a><p class="gallery-signature">A personal collection by Yutao Lin.</p></div>
+      <div class="gallery-controls"><button id="project-previous" type="button" aria-label="Previous featured project">←</button><span id="featured-count">01 / 03</span><button id="project-next" type="button" aria-label="Next featured project">→</button></div>
+    </section>
+    <section class="collection-section"><div class="section-heading"><h2>Latest Projects</h2><a href="projects/">All projects ↗</a></div><div class="projects"></div></section>
+    <section class="profile-section"><div class="section-heading"><h2>My GitHub Stats</h2><span class="eyebrow">BUILD / LEARN / REPEAT</span></div><div id="profile-stats"></div></section>
+  </main>
+  <footer class="site-footer"><span>YUTAO LIN © 2026</span><a href="contact/">Let’s connect ↗</a></footer>
 </body>
 </html>

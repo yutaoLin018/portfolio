@@ -1,4 +1,4 @@
-console.log("IT'S ALIVE!");
+
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
@@ -120,7 +120,12 @@ appearanceControl.innerHTML = `
   <span class="theme-orb-label"></span>
 `;
 
-nav.append(navLinks, appearanceControl);
+const brand = document.createElement('a');
+brand.className = 'site-brand';
+brand.href = BASE_PATH;
+brand.textContent = 'YL↗';
+brand.setAttribute('aria-label', 'Yutao Lin home');
+nav.append(brand, navLinks, appearanceControl);
 document.body.prepend(nav);
 
 const systemThemeQuery = window.matchMedia("(prefers-color-scheme: dark)");
