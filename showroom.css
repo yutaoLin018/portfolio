@@ -162,3 +162,7 @@ html.preview-open { overflow:hidden; }
 @keyframes preview-reveal { from { opacity:0;transform:translateY(24px) scale(.965); } to { opacity:1;transform:translateY(0) scale(1); } }
 @keyframes preview-backdrop-reveal { from { opacity:0; } to { opacity:1; } }
 @media(prefers-reduced-motion:reduce) { .project-preview[open],.project-preview[open]::backdrop { animation:none; } }
+/* Center the selected board within the exhibition area. */
+.project-board { top:50%; }
+.project-board,.project-board:hover,.project-board:active { transform:translate(calc(-50% + var(--x,0px)),calc(-50% + var(--y,0px))) rotate(-18deg) skewX(18deg) scaleY(.85); }
+@media(min-width:851px) { .showroom-copy h1 { font-size:clamp(1.3rem,1.8vw,2.3rem); } .showroom-copy > p:not(.eyebrow) { font-size:.75rem;line-height:1.5; } .project-plane { bottom:160px; } }
