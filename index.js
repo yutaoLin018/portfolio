@@ -30,9 +30,6 @@ const boards = featured.map((project, index) => {
   board.className = 'project-board';
   board.style.setProperty('--board-color', colors[index % colors.length]);
   board.setAttribute('aria-label', `Preview ${project.title}`);
-  const caption = document.createElement('span');
-  caption.className = 'panel-caption';
-  caption.textContent = `PROJECT / ${String(index + 1).padStart(2, '0')}`;
   const image = document.createElement('img');
   image.src = project.image;
   image.alt = project.title;
@@ -40,7 +37,7 @@ const boards = featured.map((project, index) => {
   const title = document.createElement('span');
   title.className = 'panel-name';
   title.textContent = project.title;
-  board.append(caption, image, title);
+  board.append(image, title);
   board.addEventListener('click', () => {
     if (suppressClick) return;
     featuredIndex = index;
