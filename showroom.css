@@ -156,3 +156,9 @@ html.preview-open { overflow:hidden; }
 /* Larger boards centered on the full exhibition plane. */ @media(min-width:851px) { .project-board { left:50%;width:min(60vw,1000px);height:clamp(330px,44vh,500px); } } @media(min-width:621px) and (max-width:850px) { .project-board { left:50%;width:72vw;height:270px; } } @media(max-width:620px) { .project-board { left:50%;width:86vw;height:225px; } }
 @media(min-width:851px) { .project-board { top:clamp(-45px,calc(10vh - 125px),0px); } }
 .project-board .panel-caption, .floating-project .panel-caption { display:none; }
+/* Gentle entrance for the frosted project preview. */
+.project-preview[open] { animation:preview-reveal 380ms cubic-bezier(.2,.75,.25,1) both; }
+.project-preview[open]::backdrop { animation:preview-backdrop-reveal 380ms ease-out both; }
+@keyframes preview-reveal { from { opacity:0;transform:translateY(24px) scale(.965); } to { opacity:1;transform:translateY(0) scale(1); } }
+@keyframes preview-backdrop-reveal { from { opacity:0; } to { opacity:1; } }
+@media(prefers-reduced-motion:reduce) { .project-preview[open],.project-preview[open]::backdrop { animation:none; } }
